@@ -12,6 +12,12 @@ public class PlayerSO : ScriptableObject
     [SerializeField]
     ShotCollision colliderSize;
 
+    [Header("Extra Shot Attributes")]
+    [SerializeField]
+    int extraShotStrength;
+    [SerializeField]
+    float extraShotSpeed;
+
     [Header("Magic Attributes")]
     [SerializeField]
     int magicMonsters;
@@ -22,19 +28,40 @@ public class PlayerSO : ScriptableObject
     [SerializeField]
     int magicShotGenerators;
 
+    [Header("Extra Magic Attributes")]
+    [SerializeField]
+    int extraMagicMonsters;
+    [SerializeField]
+    int extraMagicGenerators;
+    [SerializeField]
+    int extraMagicShotMonsters;
+    [SerializeField]
+    int extraMagicShotGenerators;
+
     [Header("Melee Attributes")]
     [SerializeField]
     int meleeMonsters;
     [SerializeField]
-    int meleeGenerators;
+    float meleeGenerators;
 
-
+    [Header("Extra Melee Attributes")]
+    [SerializeField]
+    int extraMelee;
+    [SerializeField]
+    float extraMeleeGenerators;
 
     [Header("Physical Attributes")]
     [SerializeField]
-    int Armor;
+    float Armor;
     [SerializeField]
     int Health;
     [SerializeField]
     float RunningSpeed;
+
+    [Header("Extra Physical Attributes")]
+    [SerializeField]
+    float extraArmor;
+    [SerializeField]
+    float extraSpeed;
+
 }

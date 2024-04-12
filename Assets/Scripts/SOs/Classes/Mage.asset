@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a77cd59b8be21ee4991655b994a35e5d, type: 3}
+  m_Name: Mage
+  m_EditorClassIdentifier: 
+  ShotStrength: 1
+  shotSpeed: 3.5
+  colliderSize: 1
+  extraShotStrength: 2
+  extraShotSpeed: 5
+  magicMonsters: 3
+  magicGenerators: 3
+  magicShotMonsters: 3
+  magicShotGenerators: 2
+  extraMagicMonsters: 3
+  extraMagicGenerators: 3
+  extraMagicShotMonsters: 3
+  extraMagicShotGenerators: 3
+  meleeMonsters: 1
+  meleeGenerators: 1
+  extraMelee: 2
+  extraMeleeGenerators: 1
+  Armor: 0
+  Health: 700
+  RunningSpeed: 1
+  extraArmor: 0.1
+  extraSpeed: 3

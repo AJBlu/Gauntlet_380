@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a77cd59b8be21ee4991655b994a35e5d, type: 3}
+  m_Name: Warrior
+  m_EditorClassIdentifier: 
+  ShotStrength: 2
+  shotSpeed: 2
+  colliderSize: 2
+  extraShotStrength: 3
+  extraShotSpeed: 3
+  magicMonsters: 2
+  magicGenerators: 0
+  magicShotMonsters: 1
+  magicShotGenerators: 0
+  extraMagicMonsters: 3
+  extraMagicGenerators: 1
+  extraMagicShotMonsters: 3
+  extraMagicShotGenerators: 1
+  meleeMonsters: 2
+  meleeGenerators: 0.15
+  extraMelee: 3
+  extraMeleeGenerators: 0
+  Armor: 0.2
+  Health: 700
+  RunningSpeed: 1
+  extraArmor: 0.3
+  extraSpeed: 3

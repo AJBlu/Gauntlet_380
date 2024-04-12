@@ -9,6 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a77cd59b8be21ee4991655b994a35e5d, type: 3}
-  m_Name: Valkyrie
+  m_Script: {fileID: 11500000, guid: 024f23fb9cc4a82428510aff7dc019c2, type: 3}
+  m_Name: ShotSpeedBoost
   m_EditorClassIdentifier: 
+  potion: 3
+  Health: 1
