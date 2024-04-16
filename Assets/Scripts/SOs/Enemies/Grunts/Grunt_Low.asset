@@ -15,10 +15,10 @@ MonoBehaviour:
   pointsMagicKill: 10
   pointsShootingKill: 5
   pointsFightingKill: 25
-  rank: 1
+  rank: 0
   isMelee: 1
-  meleeDamage: 8
-  health: 2
+  meleeDamage: 5
+  health: 1
   passThroughWalls: 0
   hitsObjects: 0
   projectileDamage: 0

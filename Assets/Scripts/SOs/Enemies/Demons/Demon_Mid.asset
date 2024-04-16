@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d71f2b2fba819e9438f2401224094e45, type: 3}
   m_Name: Demon_Mid
   m_EditorClassIdentifier: 
-  pointsMagicKill: 0
-  pointsShootingKill: 0
-  pointsFightingKill: 0
-  rank: 0
+  pointsMagicKill: 10
+  pointsShootingKill: 5
+  pointsFightingKill: 25
+  rank: 1
   isMelee: 1
-  meleeDamage: 10
-  health: 0
+  meleeDamage: 8
+  health: 2
   passThroughWalls: 0
-  hitsObjects: 0
-  projectileDamage: 0
+  hitsObjects: 1
+  projectileDamage: 10

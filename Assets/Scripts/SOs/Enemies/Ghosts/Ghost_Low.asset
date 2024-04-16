@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d71f2b2fba819e9438f2401224094e45, type: 3}
   m_Name: Ghost_Low
   m_EditorClassIdentifier: 
-  pointsMagicKill: 0
-  pointsShootingKill: 0
-  pointsFightingKill: 0
+  pointsMagicKill: 10
+  pointsShootingKill: 10
+  pointsFightingKill: 10
   rank: 0
   isMelee: 1
   meleeDamage: 10
