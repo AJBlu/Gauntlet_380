@@ -35,7 +35,7 @@ public class MakeScriptableObjects
     {
         PotionSO asset = ScriptableObject.CreateInstance<PotionSO>();
         
-        AssetDatabase.CreateAsset(asset, "Assets/Scripts/SOs/Potions/NewEnemySO.asset");
+        AssetDatabase.CreateAsset(asset, "Assets/Scripts/SOs/Potions/NewPotionSO.asset");
         AssetDatabase.SaveAssets();
 
         EditorUtility.FocusProjectWindow();
@@ -48,7 +48,7 @@ public class MakeScriptableObjects
     {
         GeneratorSO asset = ScriptableObject.CreateInstance<GeneratorSO>();
 
-        AssetDatabase.CreateAsset(asset, "Assets/Scripts/SOs/Generators/NewEnemySO.asset");
+        AssetDatabase.CreateAsset(asset, "Assets/Scripts/SOs/Generators/NewGeneratorSO.asset");
         AssetDatabase.SaveAssets();
 
         EditorUtility.FocusProjectWindow();
