@@ -9,6 +9,10 @@ public enum Potions
     SHOTBOOST,
     SHOTSPEEDBOOST,
     FIGHTBOOST,
-    SPEEDBOOST
+    SPEEDBOOST,
+    DESTRUCTIBLEFOOD,
+    FOOD,
+    INVISIBILITY,
+    BOMBPOTION
     
 }

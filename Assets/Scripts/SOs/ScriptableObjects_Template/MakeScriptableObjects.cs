@@ -12,7 +12,7 @@ public class MakeScriptableObjects
         AssetDatabase.CreateAsset(asset, "Assets/Scripts/SOs/Enemies/NewEnemySO.asset");
         AssetDatabase.SaveAssets();
 
-        EditorUtility.FocusProjectWindow();
+        //EditorUtility.FocusProjectWindow();
 
         Selection.activeObject = asset;
     }
@@ -25,7 +25,7 @@ public class MakeScriptableObjects
         AssetDatabase.CreateAsset(asset, "Assets/Scripts/SOs/Classes/NewPlayerSO.asset");
         AssetDatabase.SaveAssets();
 
-        EditorUtility.FocusProjectWindow();
+        //EditorUtility.FocusProjectWindow();
 
         Selection.activeObject = asset;
     }
@@ -35,10 +35,10 @@ public class MakeScriptableObjects
     {
         PotionSO asset = ScriptableObject.CreateInstance<PotionSO>();
         
-        AssetDatabase.CreateAsset(asset, "Assets/Scripts/SOs/Potions/NewEnemySO.asset");
+        AssetDatabase.CreateAsset(asset, "Assets/Scripts/SOs/Pickups/NewPotionSO.asset");
         AssetDatabase.SaveAssets();
 
-        EditorUtility.FocusProjectWindow();
+        //EditorUtility.FocusProjectWindow();
 
         Selection.activeObject = asset;
     }
@@ -48,10 +48,10 @@ public class MakeScriptableObjects
     {
         GeneratorSO asset = ScriptableObject.CreateInstance<GeneratorSO>();
 
-        AssetDatabase.CreateAsset(asset, "Assets/Scripts/SOs/Generators/NewEnemySO.asset");
+        AssetDatabase.CreateAsset(asset, "Assets/Scripts/SOs/Generators/NewGeneratorSO.asset");
         AssetDatabase.SaveAssets();
 
-        EditorUtility.FocusProjectWindow();
+        //EditorUtility.FocusProjectWindow();
 
         Selection.activeObject = asset;
     }
