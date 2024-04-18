@@ -27,7 +27,7 @@ public class Enemy_Generic : IEnemy, IDamageable
 
     }
 
-    public void Attack()
+    public void attack()
     {
 
     }
