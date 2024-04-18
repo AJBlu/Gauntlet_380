@@ -5,63 +5,41 @@ using UnityEngine;
 public class PlayerSO : ScriptableObject
 {
     [Header("Shot Attributes")]
-    [SerializeField]
-    int ShotStrength;
-    [SerializeField]
-    float shotSpeed;
-    [SerializeField]
-    ShotCollision colliderSize;
+    public int ShotStrength;
+    public float shotSpeed;
+    public  ShotCollision colliderSize;
 
     [Header("Extra Shot Attributes")]
-    [SerializeField]
-    int extraShotStrength;
-    [SerializeField]
-    float extraShotSpeed;
+    public int extraShotStrength;
+    public float extraShotSpeed;
 
     [Header("Magic Attributes")]
-    [SerializeField]
-    int magicMonsters;
-    [SerializeField]
-    int magicGenerators;
-    [SerializeField]
-    int magicShotMonsters;
-    [SerializeField]
-    int magicShotGenerators;
+    public int magicMonsters;
+    public int magicGenerators;
+    public int magicShotMonsters;
+    public int magicShotGenerators;
 
     [Header("Extra Magic Attributes")]
-    [SerializeField]
-    int extraMagicMonsters;
-    [SerializeField]
-    int extraMagicGenerators;
-    [SerializeField]
-    int extraMagicShotMonsters;
-    [SerializeField]
-    int extraMagicShotGenerators;
+    public int extraMagicMonsters;
+    public int extraMagicGenerators;
+    public int extraMagicShotMonsters;
+    public int extraMagicShotGenerators;
 
     [Header("Melee Attributes")]
-    [SerializeField]
-    int meleeMonsters;
-    [SerializeField]
-    float meleeGenerators;
+    public int meleeMonsters;
+    public float meleeGenerators;
 
     [Header("Extra Melee Attributes")]
-    [SerializeField]
-    int extraMelee;
-    [SerializeField]
-    float extraMeleeGenerators;
+    public int extraMelee;
+    public float extraMeleeGenerators;
 
     [Header("Physical Attributes")]
-    [SerializeField]
-    float Armor;
-    [SerializeField]
-    int Health;
-    [SerializeField]
-    float RunningSpeed;
+    public float Armor;
+    public int Health;
+    public float RunningSpeed;
 
     [Header("Extra Physical Attributes")]
-    [SerializeField]
-    float extraArmor;
-    [SerializeField]
-    float extraSpeed;
+    public float extraArmor;
+    public float extraSpeed;
 
 }

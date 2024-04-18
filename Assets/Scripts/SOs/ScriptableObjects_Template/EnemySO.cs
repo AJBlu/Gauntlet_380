@@ -5,30 +5,25 @@ using UnityEngine;
 public class EnemySO : ScriptableObject
 {
     [Header("Points Values")]
-    [SerializeField]
-    int pointsMagicKill;
-    [SerializeField]
-    int pointsShootingKill;
-    [SerializeField]
-    int pointsFightingKill;
+    public int pointsMagicKill;
+    public int pointsShootingKill;
+    public int pointsFightingKill;
 
     [Header("Enemy Statistics")]
-    [SerializeField]
-    Rank rank;
-    [SerializeField]
-    bool isMelee;
-    [SerializeField]
-    int meleeDamage;
-    [SerializeField]
+    public Rank rank;
+    public bool isMelee;
+    public int meleeDamage;
     [Range(1,3)]
-    int health;
+    public int health;
+
+    [Header("Damage Immunities")]
+    public bool canFight;
+    public bool canShoot;
+    public bool canZap;
 
     [Header("Projectile Values")]
-    [SerializeField]
-    bool passThroughWalls;
-    [SerializeField]
-    bool hitsObjects;
-    [SerializeField]
-    int projectileDamage;
+    public bool passThroughWalls;
+    public bool hitsObjects;
+    public int projectileDamage;
 
 }
