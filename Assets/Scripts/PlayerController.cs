@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private PlayerControls controls;
     private Vector2 moveInput;
+    public int speed;
+
     private void Awake()
     {
 
@@ -15,19 +17,19 @@ public class PlayerController : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.W))
         {
-            transform.position += Vector3.forward *Time.deltaTime;
+            transform.position += Vector3.forward *Time.deltaTime * speed;
         }
         if (Input.GetKey(KeyCode.S))
         {
-            transform.position += Vector3.back * Time.deltaTime;
+            transform.position += Vector3.back * Time.deltaTime * speed;
         }
         if (Input.GetKey(KeyCode.A))
         {
-            transform.position += Vector3.left * Time.deltaTime;
+            transform.position += Vector3.left * Time.deltaTime * speed;
         }
         if (Input.GetKey(KeyCode.D))
         {
-            transform.position += Vector3.right * Time.deltaTime;
+            transform.position += Vector3.right * Time.deltaTime * speed;
         }
     }
     public void ReceiveInput(Vector2 _moveInput)

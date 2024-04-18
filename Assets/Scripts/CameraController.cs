@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    private List<Transform> playerTransforms = new List<Transform>();
-    [SerializeField] private Vector3 farthestPlayer;
+    [SerializeField] private Vector3 playersMiddle;
     private float cameraY;
     private float minPositionX;
     private float maxPositionX;
@@ -24,13 +23,15 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
-        farthestPlayer = GameObject.FindGameObjectWithTag("Player").transform.position;
-        farthestPlayer.y = cameraY;
-        if (farthestPlayer != null)
+        //This is just a test way to get the middle will be changed later when game is more complete
+        playersMiddle = GameObject.FindGameObjectWithTag("Middle").transform.position;
+        playersMiddle.y = cameraY;
+        if (playersMiddle != null)
         {
-            if (transform.position.x != farthestPlayer.x || transform.position.z != farthestPlayer.z)
+            if (transform.position.x != playersMiddle.x || transform.position.z != playersMiddle.z)
             {
-                transform.position = new Vector3(Mathf.Clamp(farthestPlayer.x, minPositionX, maxPositionX), cameraY, Mathf.Clamp(farthestPlayer.z, minPositionX, maxPositionX));
+                //Clamps camera at the edge of 
+                transform.position = new Vector3(Mathf.Clamp(playersMiddle.x, minPositionX, maxPositionX), cameraY, Mathf.Clamp(playersMiddle.z, minPositionZ, maxPositionZ));
             }
         }
     }
