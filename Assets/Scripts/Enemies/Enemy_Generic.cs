@@ -5,6 +5,11 @@ using UnityEngine.UIElements.Experimental;
 
 public class Enemy_Generic : IEnemy, IDamageable
 {
+    EnemySO enemyData;
+
+    int health;
+
+
     //Damageable
    public void assignDamageStats()
    {
@@ -29,6 +34,9 @@ public class Enemy_Generic : IEnemy, IDamageable
 
     public void attack()
     {
+        if (enemyData.isMelee)
+        {
 
+        }
     }
 }
