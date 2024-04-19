@@ -58,6 +58,6 @@ public class Enemy_Generic : IEnemy, IDamageable
 
     public virtual void attack()
     {
-
+        //override with melee or shot or both
     }
 }
