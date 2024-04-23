@@ -1,5 +1,7 @@
+using UnityEngine;
+
 public interface IEnemy
 {
-    void attack();
+    void attack(GameObject player);
 
 }
