@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements.Experimental;
 
-public class Enemy_Generic : IEnemy, IDamageable
+public class Enemy_Generic : MonoBehaviour, IEnemy, IDamageable
 {
-    EnemySO enemyData;
+    protected EnemySO enemyData;
 
-    int health; 
+    protected int health; 
 
     //Damageable
    public void assignDamageStats()
@@ -50,13 +51,26 @@ public class Enemy_Generic : IEnemy, IDamageable
         }
    }
 
+
     public void SendScore(int points)
     {
         //TODO once scoring system and UI events are being made
         //fire off score event
     }
 
-    public virtual void attack()
+    public virtual void attack(GameObject player)
+    {
+    
+    }
+        
+
+    //set transform position to nearest player
+    private Vector3 toPlayerStep()
+    {
+        return Vector3.MoveTowards(game.transform.position, getNearestPlayer.position, float speed);
+    }
+
+    private Transform getNearestPlayer()
     {
         //override with melee or shot or both
     }
