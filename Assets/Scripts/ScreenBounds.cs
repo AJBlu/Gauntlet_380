@@ -5,24 +5,22 @@ using UnityEngine;
 public class ScreenBounds : MonoBehaviour
 {
     public Camera MainCamera;
-    private Vector2 screenBounds;
+    private Vector3 maxScreenBounds;
+    private Vector3 minScreenBounds;
     private float objectWidth;
-    private float objectHeight;
 
-    // Use this for initialization
     void Start()
     {
-        screenBounds = MainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, MainCamera.transform.position.z));
-        objectWidth = transform.GetComponent<MeshRenderer>().bounds.extents.x; //extents = size of width / 2
-        objectHeight = transform.GetComponent<MeshRenderer>().bounds.extents.y; //extents = size of height / 2
+        objectWidth = transform.GetComponent<MeshRenderer>().bounds.extents.x;
+    }
+    private void Update()
+    {
+        maxScreenBounds = MainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, transform.position.z));
+        minScreenBounds = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, 0));
     }
 
-    // Update is called once per frame
     void LateUpdate()
     {
-        Vector3 viewPos = transform.position;
-        viewPos.x = Mathf.Clamp(viewPos.x, screenBounds.x * -1 + objectWidth, screenBounds.x - objectWidth);
-        viewPos.y = Mathf.Clamp(viewPos.y, screenBounds.y * -1 + objectHeight, screenBounds.y - objectHeight);
-        transform.position = viewPos;
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, minScreenBounds.x + objectWidth, maxScreenBounds.x - objectWidth), transform.position.y, Mathf.Clamp(transform.position.z, minScreenBounds.z + objectWidth, maxScreenBounds.z - objectWidth));
     }
 }
