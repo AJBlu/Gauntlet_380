@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class ScreenBounds : MonoBehaviour
 {
-    public Camera MainCamera;
+    private Camera MainCamera;
     private Vector3 maxScreenBounds;
     private Vector3 minScreenBounds;
     private float objectWidth;
-
+    private void Awake()
+    {
+        MainCamera = Camera.main;
+    }
     void Start()
     {
         objectWidth = transform.GetComponent<MeshRenderer>().bounds.extents.x;
@@ -18,7 +21,6 @@ public class ScreenBounds : MonoBehaviour
         maxScreenBounds = MainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, transform.position.z));
         minScreenBounds = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, 0));
     }
-
     void LateUpdate()
     {
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, minScreenBounds.x + objectWidth, maxScreenBounds.x - objectWidth), transform.position.y, Mathf.Clamp(transform.position.z, minScreenBounds.z + objectWidth, maxScreenBounds.z - objectWidth));
