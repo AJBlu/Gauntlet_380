@@ -14,7 +14,7 @@ public class CameraController : MonoBehaviour
     private void Awake()
     {
         cameraY = transform.position.y;
-        //This needs to be changed to whatever the levels size is
+        //This needs to be changed to whatever the levels size is also based on screen size as this affects it(maybe add blank boarder on levels to make up for this)
         minPositionX = -4f;
         maxPositionX = 28f;
         minPositionZ = -7.5f;
