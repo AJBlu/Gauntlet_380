@@ -24,13 +24,13 @@ public class PlayerGeneric : MonoBehaviour, IPlayerClass
         _armor = playerData.Armor;
 
     }
-
-    public void OnFight()
+    private void OnTriggerEnter(Collider other)
     {
-        //hit everything around you when pressing shoot button with no direction input
-        Collider[] monsters = Physics.OverlapSphere(this.transform.position, 2f);
-        foreach(var collider in monsters)
-        {
+        OnFight(other);
+    }
+
+    public void OnFight(Collider collider)
+    {
             if(collider.tag == "Enemy")
             {
                 collider.GetComponent<Enemy_Generic>().onDamage(_meleeMonsters, Attacks.FIGHTATTACK);
@@ -43,7 +43,6 @@ public class PlayerGeneric : MonoBehaviour, IPlayerClass
                     collider.GetComponent<Enemy_Generic>().onDamage(_meleeMonsters, Attacks.FIGHTATTACK);
                 }
             }
-        }
     }
 
     public void OnMagic()

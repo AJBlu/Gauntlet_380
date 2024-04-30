@@ -2,17 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TeleporterTile : MonoBehaviour
+public class TeleporterTile : ITile
 {
-    // Start is called before the first frame update
-    void Start()
+    
+    public GameObject destinationTile;
+
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if(other.tag == "Player")
+            OnWalkOver(other.gameObject);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnWalkOver(GameObject player)
     {
-        
+
+        player.gameObject.transform.position = destinationTile.transform.position;
     }
 }

@@ -1,8 +1,10 @@
+using UnityEngine;
+
 public interface IPlayerClass
 {
     void assignPlayerAttributes();
 
-    void OnFight();
+    void OnFight(Collider collider);
 
     void OnShoot();
 

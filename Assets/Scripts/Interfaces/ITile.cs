@@ -1,5 +1,7 @@
 
+using UnityEngine;
+
 public interface ITile
 {
-    void OnWalkOver();
+    void OnWalkOver(GameObject player);
 }

@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TileGeneric : ITile
+public class GameManager : MonoBehaviour
 {
-
-    public void OnWalkOver(GameObject player)
+    //load next level
+    public void LoadNextLevel()
     {
 
     }
