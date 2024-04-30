@@ -13,7 +13,7 @@ public class Fighter_Generic : Enemy_Generic
     public override void attack(GameObject player)
     {
         base.attack(player);
-        player.GetComponent<PlayerGeneric>().damage(enemyData.meleeDamage);
+        player.GetComponent<PlayerGeneric>().DamagePlayer(enemyData.meleeDamage);
 
         //implement melee attack pattern
     }
