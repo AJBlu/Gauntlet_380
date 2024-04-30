@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerGeneric : MonoBehaviour, IPlayerClass
 {
     PlayerInventory inventory;
+    ScreenBounds _screenBounds;
     PlayerSO playerData;
     int _currentHealth, _shotStrength, _magicMonsters, _magicGenerators, _magicShotMonsters, _magicShotGenerators, _meleeMonsters;
     float _armor, _meleeGenerators, _shotSpeed, _runningSpeed;
@@ -24,7 +25,7 @@ public class PlayerGeneric : MonoBehaviour, IPlayerClass
         _meleeGenerators = playerData.meleeGenerators;
         _armor = playerData.Armor;
         inventory = gameObject.AddComponent<PlayerInventory>();
-        
+        _screenBounds = gameObject.AddComponent<ScreenBounds>();
 
     }
     private void OnTriggerEnter(Collider other)
@@ -54,7 +55,23 @@ public class PlayerGeneric : MonoBehaviour, IPlayerClass
         //do magic damage to them
         if (inventory.hasPotion())
         {
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            foreach (GameObject enemy in enemies)
+            {
+                if (enemy.GetComponent<Renderer>().isVisible)
+                {
+                    enemy.GetComponent<Enemy_Generic>().onDamage(_magicMonsters, Attacks.MAGICATTACK);
+                }
+            }
 
+            GameObject[] generators = GameObject.FindGameObjectsWithTag("Generator");
+            foreach (GameObject generator in generators)
+            {
+                if(generator.GetComponent<Renderer>().isVisible)
+                {
+                    //todo: generator code
+                }
+            }
         }
     }
 
