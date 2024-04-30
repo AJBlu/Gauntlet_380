@@ -16,5 +16,10 @@ public class WallKey : Wall
 
         //check if key is in inventory
         //take away key and destroy self if collided with
+        if (player.GetComponent<PlayerInventory>().hasKey())
+        {
+            gameObject.SetActive(false);
+        }
+
     }
 }

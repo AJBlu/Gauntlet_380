@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerGeneric : MonoBehaviour, IPlayerClass
 {
+    PlayerInventory inventory;
     PlayerSO playerData;
     int _currentHealth, _shotStrength, _magicMonsters, _magicGenerators, _magicShotMonsters, _magicShotGenerators, _meleeMonsters;
     float _armor, _meleeGenerators, _shotSpeed, _runningSpeed;
@@ -22,6 +23,8 @@ public class PlayerGeneric : MonoBehaviour, IPlayerClass
         _meleeMonsters = playerData.meleeMonsters;
         _meleeGenerators = playerData.meleeGenerators;
         _armor = playerData.Armor;
+        inventory = gameObject.AddComponent<PlayerInventory>();
+        
 
     }
     private void OnTriggerEnter(Collider other)
@@ -49,6 +52,10 @@ public class PlayerGeneric : MonoBehaviour, IPlayerClass
     {
         //fetch list of every creature on screen
         //do magic damage to them
+        if (inventory.hasPotion())
+        {
+
+        }
     }
 
     public void OnShoot()
