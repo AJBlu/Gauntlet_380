@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TeleporterTile : ITile
+public class TeleporterTile : MonoBehaviour, ITile
 {
     
     public GameObject destinationTile;
