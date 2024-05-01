@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class ExitTile : ITile
+public class ExitTile : MonoBehaviour, ITile
 {
     private void OnTriggerEnter(Collider other)
     {

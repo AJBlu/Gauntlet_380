@@ -1,11 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Android.Types;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class TrapTile : ITile
+public class TrapTile : MonoBehaviour, ITile
 {
     GameObject[] walls;
+
+
+
+
+
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
