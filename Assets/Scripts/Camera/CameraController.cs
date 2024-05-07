@@ -25,9 +25,9 @@ public class CameraController : MonoBehaviour
     {
         //This is just a test way to get the middle will be changed later when game is more complete
         playersMiddle = GameObject.FindGameObjectWithTag("Middle").transform.position;
-        playersMiddle.y = cameraY;
         if (playersMiddle != null)
         {
+            playersMiddle.y = cameraY;
             if (transform.position.x != playersMiddle.x || transform.position.z != playersMiddle.z)
             {
                 //Clamps camera at the edge of 
