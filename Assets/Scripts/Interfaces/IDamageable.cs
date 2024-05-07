@@ -1,7 +1,7 @@
 public interface IDamageable
 {
     void assignDamageStats();
-    void onDamage();
+    void onDamage(int damageValue, Attacks attack);
 
-    void onDeath();
+    void onDeath(Attacks attackType);
 }

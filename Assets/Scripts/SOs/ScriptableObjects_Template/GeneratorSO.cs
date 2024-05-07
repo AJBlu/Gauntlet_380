@@ -4,13 +4,9 @@ using UnityEngine;
 
 public class GeneratorSO : ScriptableObject
 {
-    [SerializeField]
-    int points;
+    public int points;
+    public Rank rank;
 
-    [SerializeField]
-    Rank rank;
 
-    [SerializeField]
-    [Range(1,3)]
-    int health;
+    public int health;
 }

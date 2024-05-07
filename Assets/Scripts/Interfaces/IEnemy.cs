@@ -1,6 +1,7 @@
+using UnityEngine;
+
 public interface IEnemy
 {
-    void assignScoringValues();
-    void attack();
+    void attack(GameObject player);
 
 }

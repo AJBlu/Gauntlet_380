@@ -7,6 +7,4 @@ public class PotionSO : ScriptableObject
     [SerializeField]
     Potions potion;
 
-    [SerializeField]
-    int Health = 1;
 }

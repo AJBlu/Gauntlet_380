@@ -5,5 +5,5 @@ using UnityEngine;
 
 public interface IWall
 {
-    void OnPlayerCollide();
+    void OnPlayerCollide(GameObject player);
 }
