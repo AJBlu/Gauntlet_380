@@ -44,6 +44,42 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""JoinElf"",
+                    ""type"": ""Button"",
+                    ""id"": ""b76ef641-858e-413a-8bc9-448f8ff178eb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""JoinWarrior"",
+                    ""type"": ""Button"",
+                    ""id"": ""78af05da-c31c-408c-b78e-8b3e8570b0ba"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""JoinWizard"",
+                    ""type"": ""Button"",
+                    ""id"": ""cd3ebb92-75b4-4471-898c-25dc54945e03"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""JoinValkyrie"",
+                    ""type"": ""Button"",
+                    ""id"": ""0ac47ca8-5b2d-4270-9e81-e790b951c616"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -213,6 +249,61 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""cc5f21d5-4461-4436-97ce-dace5696945e"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""19ef3203-5213-4836-b1ab-2ecbcbedb699"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard 2"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""45f1e321-d22f-4b24-9e22-de4164377c28"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard 2"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""a06412a8-b94a-46e9-a23c-98b3226292f9"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard 2"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""198d2aba-9e4f-4bfe-bd03-9aacc6c61970"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard 2"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
                     ""name"": """",
                     ""id"": ""5a5ee2de-e1bf-4c7d-9a22-ca9b281dccfe"",
                     ""path"": ""<Keyboard>/space"",
@@ -244,6 +335,149 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dda1255c-8902-48af-b4d0-fa5859b679f9"",
+                    ""path"": ""<Keyboard>/numpadPlus"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard 2"",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""One Modifier"",
+                    ""id"": ""489a41de-ca93-4276-af58-308efd190a1c"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""JoinElf"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""fb667b78-94fe-4ad3-b32f-c818815cfebb"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""JoinElf"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""6ac7a1ee-35d5-4a23-b4b3-6f8999a1f2f5"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""JoinElf"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""One Modifier"",
+                    ""id"": ""9c66e5c0-c9c5-4c0c-89fe-05272ebfddfe"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""JoinWarrior"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""96525601-a18b-4f2c-9242-78a12bc48c52"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""JoinWarrior"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""95d760d1-24a6-476e-84bd-699dcca8a2e9"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""JoinWarrior"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""One Modifier"",
+                    ""id"": ""a5398a85-500b-43fd-9ea3-0cb3c4569998"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""JoinWizard"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""bd487b3e-2547-4279-a39c-4f5006845caf"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""JoinWizard"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""945a36fd-a758-4a5f-b2d6-9f2a3b262335"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""JoinWizard"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""One Modifier"",
+                    ""id"": ""e81d5495-dbdd-4ab7-8c1e-968045f6ab8e"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""JoinValkyrie"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""010c0756-642c-487b-a0f9-572c54c4dcf0"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""JoinValkyrie"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""15702c35-faef-487a-b020-ac4a7f51f802"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""JoinValkyrie"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -270,6 +504,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""isOR"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Keyboard 2"",
+            ""bindingGroup"": ""Keyboard 2"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<Keyboard>"",
+                    ""isOptional"": true,
+                    ""isOR"": false
+                }
+            ]
         }
     ]
 }");
@@ -277,6 +522,10 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Player1 = asset.FindActionMap("Player1", throwIfNotFound: true);
         m_Player1_Move = m_Player1.FindAction("Move", throwIfNotFound: true);
         m_Player1_Shoot = m_Player1.FindAction("Shoot", throwIfNotFound: true);
+        m_Player1_JoinElf = m_Player1.FindAction("JoinElf", throwIfNotFound: true);
+        m_Player1_JoinWarrior = m_Player1.FindAction("JoinWarrior", throwIfNotFound: true);
+        m_Player1_JoinWizard = m_Player1.FindAction("JoinWizard", throwIfNotFound: true);
+        m_Player1_JoinValkyrie = m_Player1.FindAction("JoinValkyrie", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -340,12 +589,20 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private List<IPlayer1Actions> m_Player1ActionsCallbackInterfaces = new List<IPlayer1Actions>();
     private readonly InputAction m_Player1_Move;
     private readonly InputAction m_Player1_Shoot;
+    private readonly InputAction m_Player1_JoinElf;
+    private readonly InputAction m_Player1_JoinWarrior;
+    private readonly InputAction m_Player1_JoinWizard;
+    private readonly InputAction m_Player1_JoinValkyrie;
     public struct Player1Actions
     {
         private @PlayerControls m_Wrapper;
         public Player1Actions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player1_Move;
         public InputAction @Shoot => m_Wrapper.m_Player1_Shoot;
+        public InputAction @JoinElf => m_Wrapper.m_Player1_JoinElf;
+        public InputAction @JoinWarrior => m_Wrapper.m_Player1_JoinWarrior;
+        public InputAction @JoinWizard => m_Wrapper.m_Player1_JoinWizard;
+        public InputAction @JoinValkyrie => m_Wrapper.m_Player1_JoinValkyrie;
         public InputActionMap Get() { return m_Wrapper.m_Player1; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -361,6 +618,18 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Shoot.started += instance.OnShoot;
             @Shoot.performed += instance.OnShoot;
             @Shoot.canceled += instance.OnShoot;
+            @JoinElf.started += instance.OnJoinElf;
+            @JoinElf.performed += instance.OnJoinElf;
+            @JoinElf.canceled += instance.OnJoinElf;
+            @JoinWarrior.started += instance.OnJoinWarrior;
+            @JoinWarrior.performed += instance.OnJoinWarrior;
+            @JoinWarrior.canceled += instance.OnJoinWarrior;
+            @JoinWizard.started += instance.OnJoinWizard;
+            @JoinWizard.performed += instance.OnJoinWizard;
+            @JoinWizard.canceled += instance.OnJoinWizard;
+            @JoinValkyrie.started += instance.OnJoinValkyrie;
+            @JoinValkyrie.performed += instance.OnJoinValkyrie;
+            @JoinValkyrie.canceled += instance.OnJoinValkyrie;
         }
 
         private void UnregisterCallbacks(IPlayer1Actions instance)
@@ -371,6 +640,18 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Shoot.started -= instance.OnShoot;
             @Shoot.performed -= instance.OnShoot;
             @Shoot.canceled -= instance.OnShoot;
+            @JoinElf.started -= instance.OnJoinElf;
+            @JoinElf.performed -= instance.OnJoinElf;
+            @JoinElf.canceled -= instance.OnJoinElf;
+            @JoinWarrior.started -= instance.OnJoinWarrior;
+            @JoinWarrior.performed -= instance.OnJoinWarrior;
+            @JoinWarrior.canceled -= instance.OnJoinWarrior;
+            @JoinWizard.started -= instance.OnJoinWizard;
+            @JoinWizard.performed -= instance.OnJoinWizard;
+            @JoinWizard.canceled -= instance.OnJoinWizard;
+            @JoinValkyrie.started -= instance.OnJoinValkyrie;
+            @JoinValkyrie.performed -= instance.OnJoinValkyrie;
+            @JoinValkyrie.canceled -= instance.OnJoinValkyrie;
         }
 
         public void RemoveCallbacks(IPlayer1Actions instance)
@@ -406,9 +687,22 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             return asset.controlSchemes[m_ControllerSchemeIndex];
         }
     }
+    private int m_Keyboard2SchemeIndex = -1;
+    public InputControlScheme Keyboard2Scheme
+    {
+        get
+        {
+            if (m_Keyboard2SchemeIndex == -1) m_Keyboard2SchemeIndex = asset.FindControlSchemeIndex("Keyboard 2");
+            return asset.controlSchemes[m_Keyboard2SchemeIndex];
+        }
+    }
     public interface IPlayer1Actions
     {
         void OnMove(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
+        void OnJoinElf(InputAction.CallbackContext context);
+        void OnJoinWarrior(InputAction.CallbackContext context);
+        void OnJoinWizard(InputAction.CallbackContext context);
+        void OnJoinValkyrie(InputAction.CallbackContext context);
     }
 }
