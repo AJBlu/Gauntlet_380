@@ -10,7 +10,7 @@ public class Enemy_Generic : MonoBehaviour, IEnemy, IDamageable
     public EnemySO enemyData;
 
     protected int health;
-
+    public bool canZap, canShoot, canFight;
 
     [Range(0f, 50f)]
     public float speed = 10;
@@ -18,32 +18,35 @@ public class Enemy_Generic : MonoBehaviour, IEnemy, IDamageable
    public void assignDamageStats()
    {
         health = enemyData.health;
+        canZap = enemyData.canZap;
+        canShoot = enemyData.canShoot;
+        canFight = enemyData.canFight;
    }
 
 
-    private void Update()
+    protected void Update()
     {
         transform.position = toPlayerStep();        
     }
 
-    public void onDamage(int damagevalue, Attacks attackType)
+    public void onDamage(int damagevalue, Attacks attackType, Hero hero)
    {
         //if the damage type of the attack is accepted by the SO
-        if(enemyData.canZap && attackType == Attacks.MAGICATTACK ||
-           enemyData.canShoot && attackType == Attacks.SHOTATTACK ||
-           enemyData.canFight && attackType == Attacks.FIGHTATTACK
+        if(canZap && attackType == Attacks.MAGICATTACK ||
+           canShoot && attackType == Attacks.SHOTATTACK ||
+           canFight && attackType == Attacks.FIGHTATTACK
         )
         {
             health -= damagevalue;
             if(health <= 0)
             {
-                onDeath(attackType);
+                onDeath(attackType, hero);
             }
         }
 
    }
 
-   public void onDeath(Attacks attackType)
+   public void onDeath(Attacks attackType, Hero hero)
    {
         switch (attackType)
         {
@@ -58,7 +61,12 @@ public class Enemy_Generic : MonoBehaviour, IEnemy, IDamageable
             case Attacks.MAGICATTACK:
                 SendScore(enemyData.pointsMagicKill);
                 break;
+
+            default:
+                break;
         }
+
+        Destroy(this);
    }
 
 
@@ -68,16 +76,17 @@ public class Enemy_Generic : MonoBehaviour, IEnemy, IDamageable
         //fire off score event
     }
 
+
     public virtual void attack(GameObject player)
     {
-    
+    //fill in with specific attack routines for every monster
     }
         
 
     //set transform position to nearest player
     private Vector3 toPlayerStep()
     {
-        return Vector3.MoveTowards(gameObject.transform.position, getNearestPlayer(), .01f);
+        return Vector3.MoveTowards(gameObject.transform.position, getNearestPlayer(), speed * Time.deltaTime);
     }
 
     //return position of closest player

@@ -2,17 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NondamageableGeneric : MonoBehaviour
+public class NondamageableGeneric : MonoBehaviour, IPickup
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    PotionSO potionType;
+    private void OnTriggerEnter(Collider other)
     {
-        
-    }
+        if (other.tag == "Player")
+        {
+            onPickUp(other.gameObject);
 
-    // Update is called once per frame
-    void Update()
+        }
+
+    }
+    public void onPickUp(GameObject player)
     {
-        
+        if (player.GetComponent<PlayerGeneric>() != null)
+        {
+            player.GetComponent<PlayerGeneric>().OnPotionPickup(potionType.potion);
+        }
+        else
+        {
+            Debug.Log("Player Inventory not attached!");
+        }
     }
 }

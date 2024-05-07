@@ -7,7 +7,8 @@ public class Fighter_Generic : Enemy_Generic
 {
     void OnTriggerEnter(Collider col)
     {
-        attack(col.gameObject);
+        if(col.tag == "Player")
+            attack(col.gameObject);
     }
 
     public override void attack(GameObject player)

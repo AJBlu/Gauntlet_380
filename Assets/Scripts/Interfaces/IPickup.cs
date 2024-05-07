@@ -1,4 +1,6 @@
+using UnityEngine;
+
 public interface IPickup
 {
-    void onPickUp();
+    void onPickUp(GameObject player);
 }

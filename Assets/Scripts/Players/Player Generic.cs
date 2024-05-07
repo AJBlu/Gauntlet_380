@@ -30,7 +30,10 @@ public class PlayerGeneric : MonoBehaviour, IPlayerClass
     }
     private void OnTriggerEnter(Collider other)
     {
-        OnFight(other);
+        if(other.tag == "Enemy" || other.tag == "Generator")
+            OnFight(other);
+
+
     }
 
     public void OnFight(Collider collider)

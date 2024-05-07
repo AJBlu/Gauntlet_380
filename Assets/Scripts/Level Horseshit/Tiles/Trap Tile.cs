@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class TrapTile : MonoBehaviour, ITile
 {
-    GameObject[] walls;
+    public GameObject[] walls;
 
 
 
