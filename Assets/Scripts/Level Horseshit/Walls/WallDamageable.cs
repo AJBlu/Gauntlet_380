@@ -12,8 +12,12 @@ public class WallDamageable : Wall, IDamageable
 
     public void onDamage(int damageValue, Attacks attack, Hero hero)
     {
-        if(attack != Attacks.MAGICATTACK)
+        if(attack == Attacks.SHOTATTACK)
             health -= damageValue;
+        if(health < 1)
+        {
+            onDeath(Attacks.SHOTATTACK, Hero.ELF);
+        }
     }
 
     public void onDeath(Attacks attackType, Hero hero)
