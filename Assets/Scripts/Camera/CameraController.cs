@@ -14,7 +14,7 @@ public class CameraController : MonoBehaviour
     private void Awake()
     {
         cameraY = transform.position.y;
-        //This needs to be changed to whatever the levels size is
+        //This needs to be changed to whatever the levels size is also based on screen size as this affects it(maybe add blank boarder on levels to make up for this)
         minPositionX = -4f;
         maxPositionX = 28f;
         minPositionZ = -7.5f;
@@ -25,9 +25,9 @@ public class CameraController : MonoBehaviour
     {
         //This is just a test way to get the middle will be changed later when game is more complete
         playersMiddle = GameObject.FindGameObjectWithTag("Middle").transform.position;
-        playersMiddle.y = cameraY;
         if (playersMiddle != null)
         {
+            playersMiddle.y = cameraY;
             if (transform.position.x != playersMiddle.x || transform.position.z != playersMiddle.z)
             {
                 //Clamps camera at the edge of 
