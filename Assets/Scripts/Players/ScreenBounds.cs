@@ -19,9 +19,9 @@ public class ScreenBounds : MonoBehaviour
     private void Update()
     {
         //This is if you aren't using the UI camera
-        maxScreenBounds = MainCamera.ScreenToWorldPoint(new Vector3(Screen.width - Screen.width, Screen.height, transform.position.z));
+        //maxScreenBounds = MainCamera.ScreenToWorldPoint(new Vector3(Screen.width - Screen.width, Screen.height, transform.position.z));
         //This is if you are using the UI camera
-        //maxScreenBounds = MainCamera.ScreenToWorldPoint(new Vector3(Screen.width - Screen.width * 0.2f, Screen.height, transform.position.z));
+        maxScreenBounds = MainCamera.ScreenToWorldPoint(new Vector3(Screen.width - Screen.width * 0.2f, Screen.height, transform.position.z));
         minScreenBounds = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, 0));
     }
     void LateUpdate()

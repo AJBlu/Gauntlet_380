@@ -11,12 +11,13 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     public int speed;
     private PlayerGeneric playerData;
-    private bool hasCharacter = true;
+    public bool hasCharacter;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
         playerData = gameObject.GetComponent<PlayerGeneric>();
+        transform.position = new Vector3(transform.position.x, 1.5f, transform.position.z);
         //This is test code to see if join works as should
         //gameObject.GetComponent<MeshRenderer>().enabled = false;
         //speed = 0;
@@ -31,46 +32,63 @@ public class PlayerController : MonoBehaviour
     }
     public void OnJoinElf(InputAction.CallbackContext value)
     {
-        //Adds ElfSO to Player Generic
         if(hasCharacter == false)
         {
-            gameObject.GetComponent<MeshRenderer>().enabled = true;
-            speed = 3;
-            hasCharacter = true;
+            //Adds ElfSO to Player Generic
+            if (PlayerJoin.Instance.elfJoined == false)
+            {
+                PlayerJoin.Instance.elfJoined = true;
+                hasCharacter = true;
+                gameObject.GetComponent<MeshRenderer>().enabled = true;
+                speed = 3;
+            }
         }
     }
     public void OnJoinWarrior(InputAction.CallbackContext value)
     {
-        //Adds WarriorSO to Player Generic
-        if (hasCharacter == false)
+        if(hasCharacter == false)
         {
-            gameObject.GetComponent<MeshRenderer>().enabled = true;
-            speed = 1;
-            hasCharacter = true;
+            //Adds WarriorSO to Player Generic
+            if (PlayerJoin.Instance.warriorJoined == false)
+            {
+                PlayerJoin.Instance.warriorJoined = true;
+                hasCharacter = true;
+                gameObject.GetComponent<MeshRenderer>().enabled = true;
+                speed = 1;
+            }
         }
     }
     public void OnJoinWizard(InputAction.CallbackContext value)
     {
-        //Adds WizardSO to Player Generic
-        if (hasCharacter == false)
+        if(hasCharacter == false)
         {
-            gameObject.GetComponent<MeshRenderer>().enabled = true;
-            speed = 1;
-            hasCharacter = true;
+            //Adds WizardSO to Player Generic
+            if (PlayerJoin.Instance.wizardJoined == false)
+            {
+                PlayerJoin.Instance.wizardJoined = true;
+                hasCharacter = true;
+                gameObject.GetComponent<MeshRenderer>().enabled = true;
+                speed = 1;
+            }
         }
     }
     public void OnJoinValkyrie(InputAction.CallbackContext value)
     {
-        //Adds ValkyrieSO to Player Generic
-        if (hasCharacter == false)
+        if(hasCharacter == false)
         {
-            gameObject.GetComponent<MeshRenderer>().enabled = true;
-            speed = 2;
-            hasCharacter = true;
+            //Adds ValkyrieSO to Player Generic
+            if (PlayerJoin.Instance.valkyrieJoined == false)
+            {
+                PlayerJoin.Instance.valkyrieJoined = true;
+                hasCharacter = true;
+                gameObject.GetComponent<MeshRenderer>().enabled = true;
+                speed = 2;
+            }
         }
     }
     private void FixedUpdate()
     {
-        rb.velocity = moveInput * speed;
+        if(hasCharacter)
+            rb.velocity = moveInput * speed;
     }
 }

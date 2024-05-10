@@ -152,7 +152,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""up"",
                     ""id"": ""31e1d19c-170a-46f6-8216-5b14558451f3"",
-                    ""path"": ""<Joystick>/stick/up"",
+                    ""path"": ""<Gamepad>/leftStick/up"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Controller"",
@@ -163,7 +163,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""down"",
                     ""id"": ""58b3a37c-d6e5-4a11-91dc-1c4b4b539429"",
-                    ""path"": ""<Joystick>/stick/down"",
+                    ""path"": ""<Gamepad>/leftStick/down"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Controller"",
@@ -174,7 +174,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""left"",
                     ""id"": ""32f12cc4-2f33-4044-aef5-965f13b4efec"",
-                    ""path"": ""<Joystick>/stick/left"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Controller"",
@@ -185,7 +185,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""right"",
                     ""id"": ""2c242a1a-bd3e-4843-bcde-6ca3b016e048"",
-                    ""path"": ""<Joystick>/stick/right"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Controller"",
@@ -210,7 +210,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""path"": ""<HID::PowerA NSW wired controller>/stick/up"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard;Controller"",
+                    ""groups"": ""Controller"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -249,8 +249,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""2D Vector"",
-                    ""id"": ""cc5f21d5-4461-4436-97ce-dace5696945e"",
+                    ""name"": ""Wireless"",
+                    ""id"": ""16285996-abf8-4ced-a78d-6d48fda66b6f"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -261,44 +261,44 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""up"",
-                    ""id"": ""19ef3203-5213-4836-b1ab-2ecbcbedb699"",
-                    ""path"": ""<Keyboard>/upArrow"",
+                    ""id"": ""7e929ad9-d000-4ca3-a7e7-50e280514f2c"",
+                    ""path"": ""<HID::Nintendo Wireless Gamepad>/stick/up"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard 2"",
+                    ""groups"": ""Controller"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""down"",
-                    ""id"": ""45f1e321-d22f-4b24-9e22-de4164377c28"",
-                    ""path"": ""<Keyboard>/downArrow"",
+                    ""id"": ""a1e3d3cb-714e-4c40-89a9-26e823ee3ae7"",
+                    ""path"": ""<HID::Nintendo Wireless Gamepad>/stick/down"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard 2"",
+                    ""groups"": ""Controller"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""left"",
-                    ""id"": ""a06412a8-b94a-46e9-a23c-98b3226292f9"",
-                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""id"": ""cd1f480f-ae16-4f34-8d71-0430dac40b5e"",
+                    ""path"": ""<HID::Nintendo Wireless Gamepad>/stick/left"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard 2"",
+                    ""groups"": ""Controller"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""right"",
-                    ""id"": ""198d2aba-9e4f-4bfe-bd03-9aacc6c61970"",
-                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""id"": ""189c31ec-adfc-413c-83c7-a7fb18f83660"",
+                    ""path"": ""<HID::Nintendo Wireless Gamepad>/stick/right"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard 2"",
+                    ""groups"": ""Controller"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -317,7 +317,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""11ba5d02-c713-42e7-a685-15a539b8a788"",
-                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Controller"",
@@ -338,11 +338,11 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""dda1255c-8902-48af-b4d0-fa5859b679f9"",
-                    ""path"": ""<Keyboard>/numpadPlus"",
+                    ""id"": ""80f0e32b-a250-4f06-ae3c-f478cac12b69"",
+                    ""path"": ""<HID::Nintendo Wireless Gamepad>/button2"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard 2"",
+                    ""groups"": ""Controller"",
                     ""action"": ""Shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -382,6 +382,39 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""One Modifier"",
+                    ""id"": ""1ebbcdd3-b4a2-439e-bc39-467d49d77d78"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""JoinElf"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""49a70886-c5db-461f-9455-03bdaca80acf"",
+                    ""path"": ""<Gamepad>/leftStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""JoinElf"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""a8c7fa51-8a51-4e36-bc76-ed5772372f89"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""JoinElf"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""One Modifier"",
                     ""id"": ""9c66e5c0-c9c5-4c0c-89fe-05272ebfddfe"",
                     ""path"": ""OneModifier"",
                     ""interactions"": """",
@@ -409,6 +442,39 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
+                    ""action"": ""JoinWarrior"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""One Modifier"",
+                    ""id"": ""e793bb0c-ae89-4a91-b124-23d1d21832f2"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""JoinWarrior"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""dc3d2704-88fc-4fb7-a3ba-3a7a9fe09bd2"",
+                    ""path"": ""<Gamepad>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""JoinWarrior"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""a342dd63-a1e0-4592-98b0-ff68813a2532"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
                     ""action"": ""JoinWarrior"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -448,7 +514,40 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""One Modifier"",
-                    ""id"": ""e81d5495-dbdd-4ab7-8c1e-968045f6ab8e"",
+                    ""id"": ""23fb0aaa-e1d8-4158-81d8-3812b139b838"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""JoinWizard"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""4b119029-f36b-41ce-a55f-246740756e70"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""JoinWizard"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""c4feeb2e-2377-49a2-b748-b39b80597f0e"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""JoinWizard"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""One Modifier"",
+                    ""id"": ""68385d47-2895-4bd5-ba3c-85edd67f7c1b"",
                     ""path"": ""OneModifier"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -459,7 +558,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""modifier"",
-                    ""id"": ""010c0756-642c-487b-a0f9-572c54c4dcf0"",
+                    ""id"": ""781ed2b8-adb1-485a-8bc4-4637c8b113ed"",
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -470,11 +569,894 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""binding"",
-                    ""id"": ""15702c35-faef-487a-b020-ac4a7f51f802"",
+                    ""id"": ""cc29c487-be12-416b-8c92-4c192f4aaf79"",
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""JoinValkyrie"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""One Modifier"",
+                    ""id"": ""9ac1312d-cab8-440b-9ab0-342bb819ba65"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
                     ""groups"": """",
+                    ""action"": ""JoinValkyrie"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""aa7a2e0e-c3ea-4dba-b790-83460246d91b"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""JoinValkyrie"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""fd24521c-ea3c-4032-bff2-84f263c69100"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""JoinValkyrie"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                }
+            ]
+        },
+        {
+            ""name"": ""Player2"",
+            ""id"": ""cf9f2938-00df-42e6-ab9f-12b92c782cb0"",
+            ""actions"": [
+                {
+                    ""name"": ""Move"",
+                    ""type"": ""Value"",
+                    ""id"": ""d8194478-2793-42d1-acb7-4a9ec9e38c25"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Shoot"",
+                    ""type"": ""Button"",
+                    ""id"": ""665b218c-1db2-4268-94d8-ba660a46e2a5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""JoinElf"",
+                    ""type"": ""Button"",
+                    ""id"": ""b33f4cec-8e00-45ce-9083-3ce0040d96ca"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""JoinWarrior"",
+                    ""type"": ""Button"",
+                    ""id"": ""d2f7005d-e772-46d9-b8e9-20f519a0d737"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""JoinWizard"",
+                    ""type"": ""Button"",
+                    ""id"": ""953c7d38-0868-4d01-b2ef-70953467dc7c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""JoinValkyrie"",
+                    ""type"": ""Button"",
+                    ""id"": ""d8ce8b92-813a-4b0e-9fe0-bff7dc4f650c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": ""Arrows"",
+                    ""id"": ""5cf85d54-18c6-4431-8439-3ec6b4a9f4a6"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""502cacb6-50ee-4799-9815-353cb4b99e4d"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard 2"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""16709320-68b8-41c7-8f1a-8f12d656a625"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard 2"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""53383c35-0b5b-4ee1-9c95-825cc04ed877"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard 2"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""66fbe0dc-ac81-45a8-99ce-e86a124e27c4"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard 2"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""246c4c59-7cf9-4e8c-a298-d97d9660ff5b"",
+                    ""path"": ""<Keyboard>/numpad0"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard 2"",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""One Modifier"",
+                    ""id"": ""ac58481c-717a-4afe-959a-ee785948dfea"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""JoinElf"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""97c06478-43c5-4b49-a516-be897cb65f5d"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard 2"",
+                    ""action"": ""JoinElf"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""abd4fc48-1af9-419b-96e2-d119e85bd76b"",
+                    ""path"": ""<Keyboard>/numpad0"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard 2"",
+                    ""action"": ""JoinElf"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""One Modifier"",
+                    ""id"": ""e41ffc2e-bd27-449a-ae09-cd48295d2a34"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""JoinWarrior"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""0ab72fd6-ee2f-4add-9dee-399be2d97a33"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard 2"",
+                    ""action"": ""JoinWarrior"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""8c59e81a-24ab-4205-9d64-55e487b3b43b"",
+                    ""path"": ""<Keyboard>/numpad0"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard 2"",
+                    ""action"": ""JoinWarrior"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""One Modifier"",
+                    ""id"": ""683c5de6-2d09-4ff4-aced-708efbbc6517"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""JoinWizard"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""d21e346f-541a-4799-93f2-e849d3e16925"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard 2"",
+                    ""action"": ""JoinWizard"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""20a07789-ccd2-48cc-bd42-26504562bccc"",
+                    ""path"": ""<Keyboard>/numpad0"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard 2"",
+                    ""action"": ""JoinWizard"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""One Modifier"",
+                    ""id"": ""6937cd77-9e6d-47e6-910e-e7354a726f44"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""JoinValkyrie"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""74bc57ab-f58c-47ff-8e90-ac1bfd0cba5f"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""JoinValkyrie"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""20729435-3f23-413b-ac0f-ab939f3d52d7"",
+                    ""path"": ""<Keyboard>/numpad0"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""JoinValkyrie"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                }
+            ]
+        },
+        {
+            ""name"": ""Player3"",
+            ""id"": ""a86e41f1-13ca-404e-a664-8490dbf58d1b"",
+            ""actions"": [
+                {
+                    ""name"": ""Move"",
+                    ""type"": ""Value"",
+                    ""id"": ""395139a4-a08e-4d8f-8080-640ea78b2783"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Shoot"",
+                    ""type"": ""Button"",
+                    ""id"": ""dafa8b06-e4c5-403b-ba7f-b054d830915a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""JoinElf"",
+                    ""type"": ""Button"",
+                    ""id"": ""d7b76374-1a7d-4389-baeb-5ce1488ceb5b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""JoinWarrior"",
+                    ""type"": ""Button"",
+                    ""id"": ""cf585377-c493-4f54-9691-84825c57bd40"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""JoinWizard"",
+                    ""type"": ""Button"",
+                    ""id"": ""a6eb9927-ce93-494b-9fd5-fcabe59b08d8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""JoinValkyrie"",
+                    ""type"": ""Button"",
+                    ""id"": ""75b615b9-eb75-49fe-8029-9c9cd1062548"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": ""WASD"",
+                    ""id"": ""f4de97f2-abd3-41ce-aedb-7340dea6b042"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""6ec9efcb-6843-4d92-a13d-8645620e8cf0"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""99aeec39-6720-4460-be1f-6b5d14033415"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""270905e1-0e88-4272-aec8-d5165ed69da9"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""4bb966b4-51eb-46a0-9dac-9f8b46b2378b"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Controller"",
+                    ""id"": ""e88cadfc-e8e6-4ca2-be3c-1bf56fb1d529"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""79c4a27b-ed5a-4b24-881c-84e401ce377b"",
+                    ""path"": ""<Gamepad>/leftStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""d1bc59f5-d7ef-450b-be54-3a1e8ddc843a"",
+                    ""path"": ""<Gamepad>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""6f2720cb-0e17-42e1-9918-c24a5bfbf086"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""67a5f8d8-94c8-4cd9-bdda-da41017c07d7"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""SwitchController"",
+                    ""id"": ""0bd87eb8-a438-4cba-b8e5-26b69615a95f"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""98a4c825-248b-42aa-a4fa-08c4b9d30dff"",
+                    ""path"": ""<HID::PowerA NSW wired controller>/stick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""2fd2fe5d-27fa-4694-a6cf-9087f281229a"",
+                    ""path"": ""<HID::PowerA NSW wired controller>/stick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""dbaa0437-a12f-4672-bcd2-feda98388c2a"",
+                    ""path"": ""<HID::PowerA NSW wired controller>/stick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""491d8b5a-6c63-4080-a405-402f2c900f51"",
+                    ""path"": ""<Joystick>/stick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Wireless"",
+                    ""id"": ""3501a0e0-1380-4ac1-aab6-de9ed1c34ead"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""1f9110b3-eca5-48b3-a1d6-6400156a9b79"",
+                    ""path"": ""<HID::Nintendo Wireless Gamepad>/stick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""92b3d4e6-4140-4439-8bb8-6c557aeb33a3"",
+                    ""path"": ""<HID::Nintendo Wireless Gamepad>/stick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""4987a167-66a1-463b-8f7e-ee2d48ca8788"",
+                    ""path"": ""<HID::Nintendo Wireless Gamepad>/stick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""e26b1673-83c8-4ae6-9f3b-cc93ed462571"",
+                    ""path"": ""<HID::Nintendo Wireless Gamepad>/stick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6137e313-05d4-47f4-9df5-7d7ef0d7c60d"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a05444b8-a3cc-4ea2-9fdc-8ab8b7fd3a0d"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""37d7a210-1d60-4e3b-85d8-e8720847994a"",
+                    ""path"": ""<HID::PowerA NSW wired controller>/button3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9961d24d-1762-4513-9b5e-09903b01adbc"",
+                    ""path"": ""<HID::Nintendo Wireless Gamepad>/button2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""One Modifier"",
+                    ""id"": ""2ace2a70-e552-4b75-9d0b-64213a56dada"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""JoinElf"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""96660854-98fc-4173-b86e-f4292c27e867"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""JoinElf"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""3d858f60-f3b3-440c-9d40-4cc14513011f"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""JoinElf"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""One Modifier"",
+                    ""id"": ""c8ab6e97-3eca-448e-85c6-912046e4c155"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""JoinElf"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""1f533eac-e3d2-4feb-81ed-6492be452288"",
+                    ""path"": ""<Gamepad>/leftStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""JoinElf"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""51b6becc-992f-4a94-953c-840df06f7434"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""JoinElf"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""One Modifier"",
+                    ""id"": ""c83c4791-9487-4456-9c3f-44d2f80b5caf"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""JoinWarrior"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""8acab3db-6f8d-42b0-b21d-4905712fdf56"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""JoinWarrior"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""ff12d6f2-c05c-49d6-9123-f8d2e3391c89"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""JoinWarrior"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""One Modifier"",
+                    ""id"": ""438c389c-e161-47a4-bd83-fca6eeffe628"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""JoinWarrior"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""b2219147-51c1-44c1-ba27-33297f9c072d"",
+                    ""path"": ""<Gamepad>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""JoinWarrior"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""e00e2d78-3d51-4839-b2a3-3604d1002ddc"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""JoinWarrior"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""One Modifier"",
+                    ""id"": ""a211b247-a2c8-4383-bf07-bb59d6b5ecf3"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""JoinWizard"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""6353320c-1ecd-4752-a648-005b8e5b00a4"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""JoinWizard"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""3b296c3a-2df4-4e24-98d3-775830616fd7"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""JoinWizard"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""One Modifier"",
+                    ""id"": ""1b47ec88-0465-47b5-949b-5ebf138c812a"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""JoinWizard"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""28ca8a3e-e653-424f-92ec-00020794e2d0"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""JoinWizard"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""16c01c84-073c-405a-82f9-ab70ec42f23a"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""JoinWizard"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""One Modifier"",
+                    ""id"": ""bc7ffd3a-83b2-4582-9e2f-8b12ac31061e"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""JoinValkyrie"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""bbc3e6b2-d2cb-442a-870e-ddfb2e165f03"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""JoinValkyrie"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""0d704e71-ca27-4cda-ba66-2221c1e558fb"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""JoinValkyrie"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""One Modifier"",
+                    ""id"": ""85f647a5-8553-45ff-be8b-1e81e65bdf31"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""JoinValkyrie"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""4930d802-4fe8-4685-9d84-9e9d402f58f0"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""JoinValkyrie"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""2b092c2b-45a5-43c2-8cc3-78152230b8cc"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
                     ""action"": ""JoinValkyrie"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -515,6 +1497,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""isOR"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Controller 2"",
+            ""bindingGroup"": ""Controller 2"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<XInputController>"",
+                    ""isOptional"": true,
+                    ""isOR"": false
+                }
+            ]
         }
     ]
 }");
@@ -526,6 +1519,22 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Player1_JoinWarrior = m_Player1.FindAction("JoinWarrior", throwIfNotFound: true);
         m_Player1_JoinWizard = m_Player1.FindAction("JoinWizard", throwIfNotFound: true);
         m_Player1_JoinValkyrie = m_Player1.FindAction("JoinValkyrie", throwIfNotFound: true);
+        // Player2
+        m_Player2 = asset.FindActionMap("Player2", throwIfNotFound: true);
+        m_Player2_Move = m_Player2.FindAction("Move", throwIfNotFound: true);
+        m_Player2_Shoot = m_Player2.FindAction("Shoot", throwIfNotFound: true);
+        m_Player2_JoinElf = m_Player2.FindAction("JoinElf", throwIfNotFound: true);
+        m_Player2_JoinWarrior = m_Player2.FindAction("JoinWarrior", throwIfNotFound: true);
+        m_Player2_JoinWizard = m_Player2.FindAction("JoinWizard", throwIfNotFound: true);
+        m_Player2_JoinValkyrie = m_Player2.FindAction("JoinValkyrie", throwIfNotFound: true);
+        // Player3
+        m_Player3 = asset.FindActionMap("Player3", throwIfNotFound: true);
+        m_Player3_Move = m_Player3.FindAction("Move", throwIfNotFound: true);
+        m_Player3_Shoot = m_Player3.FindAction("Shoot", throwIfNotFound: true);
+        m_Player3_JoinElf = m_Player3.FindAction("JoinElf", throwIfNotFound: true);
+        m_Player3_JoinWarrior = m_Player3.FindAction("JoinWarrior", throwIfNotFound: true);
+        m_Player3_JoinWizard = m_Player3.FindAction("JoinWizard", throwIfNotFound: true);
+        m_Player3_JoinValkyrie = m_Player3.FindAction("JoinValkyrie", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -669,6 +1678,178 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         }
     }
     public Player1Actions @Player1 => new Player1Actions(this);
+
+    // Player2
+    private readonly InputActionMap m_Player2;
+    private List<IPlayer2Actions> m_Player2ActionsCallbackInterfaces = new List<IPlayer2Actions>();
+    private readonly InputAction m_Player2_Move;
+    private readonly InputAction m_Player2_Shoot;
+    private readonly InputAction m_Player2_JoinElf;
+    private readonly InputAction m_Player2_JoinWarrior;
+    private readonly InputAction m_Player2_JoinWizard;
+    private readonly InputAction m_Player2_JoinValkyrie;
+    public struct Player2Actions
+    {
+        private @PlayerControls m_Wrapper;
+        public Player2Actions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Move => m_Wrapper.m_Player2_Move;
+        public InputAction @Shoot => m_Wrapper.m_Player2_Shoot;
+        public InputAction @JoinElf => m_Wrapper.m_Player2_JoinElf;
+        public InputAction @JoinWarrior => m_Wrapper.m_Player2_JoinWarrior;
+        public InputAction @JoinWizard => m_Wrapper.m_Player2_JoinWizard;
+        public InputAction @JoinValkyrie => m_Wrapper.m_Player2_JoinValkyrie;
+        public InputActionMap Get() { return m_Wrapper.m_Player2; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(Player2Actions set) { return set.Get(); }
+        public void AddCallbacks(IPlayer2Actions instance)
+        {
+            if (instance == null || m_Wrapper.m_Player2ActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_Player2ActionsCallbackInterfaces.Add(instance);
+            @Move.started += instance.OnMove;
+            @Move.performed += instance.OnMove;
+            @Move.canceled += instance.OnMove;
+            @Shoot.started += instance.OnShoot;
+            @Shoot.performed += instance.OnShoot;
+            @Shoot.canceled += instance.OnShoot;
+            @JoinElf.started += instance.OnJoinElf;
+            @JoinElf.performed += instance.OnJoinElf;
+            @JoinElf.canceled += instance.OnJoinElf;
+            @JoinWarrior.started += instance.OnJoinWarrior;
+            @JoinWarrior.performed += instance.OnJoinWarrior;
+            @JoinWarrior.canceled += instance.OnJoinWarrior;
+            @JoinWizard.started += instance.OnJoinWizard;
+            @JoinWizard.performed += instance.OnJoinWizard;
+            @JoinWizard.canceled += instance.OnJoinWizard;
+            @JoinValkyrie.started += instance.OnJoinValkyrie;
+            @JoinValkyrie.performed += instance.OnJoinValkyrie;
+            @JoinValkyrie.canceled += instance.OnJoinValkyrie;
+        }
+
+        private void UnregisterCallbacks(IPlayer2Actions instance)
+        {
+            @Move.started -= instance.OnMove;
+            @Move.performed -= instance.OnMove;
+            @Move.canceled -= instance.OnMove;
+            @Shoot.started -= instance.OnShoot;
+            @Shoot.performed -= instance.OnShoot;
+            @Shoot.canceled -= instance.OnShoot;
+            @JoinElf.started -= instance.OnJoinElf;
+            @JoinElf.performed -= instance.OnJoinElf;
+            @JoinElf.canceled -= instance.OnJoinElf;
+            @JoinWarrior.started -= instance.OnJoinWarrior;
+            @JoinWarrior.performed -= instance.OnJoinWarrior;
+            @JoinWarrior.canceled -= instance.OnJoinWarrior;
+            @JoinWizard.started -= instance.OnJoinWizard;
+            @JoinWizard.performed -= instance.OnJoinWizard;
+            @JoinWizard.canceled -= instance.OnJoinWizard;
+            @JoinValkyrie.started -= instance.OnJoinValkyrie;
+            @JoinValkyrie.performed -= instance.OnJoinValkyrie;
+            @JoinValkyrie.canceled -= instance.OnJoinValkyrie;
+        }
+
+        public void RemoveCallbacks(IPlayer2Actions instance)
+        {
+            if (m_Wrapper.m_Player2ActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IPlayer2Actions instance)
+        {
+            foreach (var item in m_Wrapper.m_Player2ActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_Player2ActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public Player2Actions @Player2 => new Player2Actions(this);
+
+    // Player3
+    private readonly InputActionMap m_Player3;
+    private List<IPlayer3Actions> m_Player3ActionsCallbackInterfaces = new List<IPlayer3Actions>();
+    private readonly InputAction m_Player3_Move;
+    private readonly InputAction m_Player3_Shoot;
+    private readonly InputAction m_Player3_JoinElf;
+    private readonly InputAction m_Player3_JoinWarrior;
+    private readonly InputAction m_Player3_JoinWizard;
+    private readonly InputAction m_Player3_JoinValkyrie;
+    public struct Player3Actions
+    {
+        private @PlayerControls m_Wrapper;
+        public Player3Actions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Move => m_Wrapper.m_Player3_Move;
+        public InputAction @Shoot => m_Wrapper.m_Player3_Shoot;
+        public InputAction @JoinElf => m_Wrapper.m_Player3_JoinElf;
+        public InputAction @JoinWarrior => m_Wrapper.m_Player3_JoinWarrior;
+        public InputAction @JoinWizard => m_Wrapper.m_Player3_JoinWizard;
+        public InputAction @JoinValkyrie => m_Wrapper.m_Player3_JoinValkyrie;
+        public InputActionMap Get() { return m_Wrapper.m_Player3; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(Player3Actions set) { return set.Get(); }
+        public void AddCallbacks(IPlayer3Actions instance)
+        {
+            if (instance == null || m_Wrapper.m_Player3ActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_Player3ActionsCallbackInterfaces.Add(instance);
+            @Move.started += instance.OnMove;
+            @Move.performed += instance.OnMove;
+            @Move.canceled += instance.OnMove;
+            @Shoot.started += instance.OnShoot;
+            @Shoot.performed += instance.OnShoot;
+            @Shoot.canceled += instance.OnShoot;
+            @JoinElf.started += instance.OnJoinElf;
+            @JoinElf.performed += instance.OnJoinElf;
+            @JoinElf.canceled += instance.OnJoinElf;
+            @JoinWarrior.started += instance.OnJoinWarrior;
+            @JoinWarrior.performed += instance.OnJoinWarrior;
+            @JoinWarrior.canceled += instance.OnJoinWarrior;
+            @JoinWizard.started += instance.OnJoinWizard;
+            @JoinWizard.performed += instance.OnJoinWizard;
+            @JoinWizard.canceled += instance.OnJoinWizard;
+            @JoinValkyrie.started += instance.OnJoinValkyrie;
+            @JoinValkyrie.performed += instance.OnJoinValkyrie;
+            @JoinValkyrie.canceled += instance.OnJoinValkyrie;
+        }
+
+        private void UnregisterCallbacks(IPlayer3Actions instance)
+        {
+            @Move.started -= instance.OnMove;
+            @Move.performed -= instance.OnMove;
+            @Move.canceled -= instance.OnMove;
+            @Shoot.started -= instance.OnShoot;
+            @Shoot.performed -= instance.OnShoot;
+            @Shoot.canceled -= instance.OnShoot;
+            @JoinElf.started -= instance.OnJoinElf;
+            @JoinElf.performed -= instance.OnJoinElf;
+            @JoinElf.canceled -= instance.OnJoinElf;
+            @JoinWarrior.started -= instance.OnJoinWarrior;
+            @JoinWarrior.performed -= instance.OnJoinWarrior;
+            @JoinWarrior.canceled -= instance.OnJoinWarrior;
+            @JoinWizard.started -= instance.OnJoinWizard;
+            @JoinWizard.performed -= instance.OnJoinWizard;
+            @JoinWizard.canceled -= instance.OnJoinWizard;
+            @JoinValkyrie.started -= instance.OnJoinValkyrie;
+            @JoinValkyrie.performed -= instance.OnJoinValkyrie;
+            @JoinValkyrie.canceled -= instance.OnJoinValkyrie;
+        }
+
+        public void RemoveCallbacks(IPlayer3Actions instance)
+        {
+            if (m_Wrapper.m_Player3ActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IPlayer3Actions instance)
+        {
+            foreach (var item in m_Wrapper.m_Player3ActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_Player3ActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public Player3Actions @Player3 => new Player3Actions(this);
     private int m_KeyboardSchemeIndex = -1;
     public InputControlScheme KeyboardScheme
     {
@@ -696,7 +1877,34 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             return asset.controlSchemes[m_Keyboard2SchemeIndex];
         }
     }
+    private int m_Controller2SchemeIndex = -1;
+    public InputControlScheme Controller2Scheme
+    {
+        get
+        {
+            if (m_Controller2SchemeIndex == -1) m_Controller2SchemeIndex = asset.FindControlSchemeIndex("Controller 2");
+            return asset.controlSchemes[m_Controller2SchemeIndex];
+        }
+    }
     public interface IPlayer1Actions
+    {
+        void OnMove(InputAction.CallbackContext context);
+        void OnShoot(InputAction.CallbackContext context);
+        void OnJoinElf(InputAction.CallbackContext context);
+        void OnJoinWarrior(InputAction.CallbackContext context);
+        void OnJoinWizard(InputAction.CallbackContext context);
+        void OnJoinValkyrie(InputAction.CallbackContext context);
+    }
+    public interface IPlayer2Actions
+    {
+        void OnMove(InputAction.CallbackContext context);
+        void OnShoot(InputAction.CallbackContext context);
+        void OnJoinElf(InputAction.CallbackContext context);
+        void OnJoinWarrior(InputAction.CallbackContext context);
+        void OnJoinWizard(InputAction.CallbackContext context);
+        void OnJoinValkyrie(InputAction.CallbackContext context);
+    }
+    public interface IPlayer3Actions
     {
         void OnMove(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
