@@ -24,6 +24,6 @@ public class Projectile : MonoBehaviour
 
     private void _movement()
     {
-        transform.position += _movementDirection * _shotSpeed;
+        transform.position += _movementDirection * _shotSpeed * Time.deltaTime;
     }
 }
