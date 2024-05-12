@@ -7,8 +7,8 @@ public class PlayerGeneric : MonoBehaviour, IPlayerClass
     PlayerInventory inventory;
     ScreenBounds _screenBounds;
     PlayerSO playerData;
-    int _currentHealth, _shotStrength, _magicMonsters, _magicGenerators, _magicShotMonsters, _magicShotGenerators, _meleeMonsters;
-    float _armor, _meleeGenerators, _shotSpeed, _runningSpeed;
+    int _currentHealth, _shotStrength, _magicMonsters, _magicGenerators, _magicShotMonsters, _magicShotGenerators, _meleeMonsters, _armor;
+    float _meleeGenerators, _shotSpeed, _runningSpeed;
     
     public void assignPlayerAttributes()
     {
@@ -23,7 +23,7 @@ public class PlayerGeneric : MonoBehaviour, IPlayerClass
         _runningSpeed = playerData.RunningSpeed;
         _meleeMonsters = playerData.meleeMonsters;
         _meleeGenerators = playerData.meleeGenerators;
-        _armor = playerData.Armor;
+        _armor = (int)playerData.Armor;
         inventory = gameObject.AddComponent<PlayerInventory>();
         _screenBounds = gameObject.AddComponent<ScreenBounds>();
 
@@ -69,7 +69,8 @@ public class PlayerGeneric : MonoBehaviour, IPlayerClass
             {
                 if(generator.GetComponent<Renderer>().isVisible)
                 {
-                    //todo: generator code
+
+                    generator.GetComponent<Generator>().onDamage(_magicMonsters, Attacks.MAGICATTACK);
                 }
             }
         }
@@ -87,14 +88,14 @@ public class PlayerGeneric : MonoBehaviour, IPlayerClass
 
     public void DamagePlayer(int damageTaken)
     {
-        _currentHealth -= damageTaken;
+        _currentHealth -= (damageTaken - _armor);
     }
     public void OnPotionPickup(Potions potion)
     {
         switch(potion) {
 
             case Potions.ARMORBOOST:
-                _armor = playerData.extraArmor;
+                _armor = (int)playerData.extraArmor;
                 break;
             case Potions.MAGICBOOST:
                 _magicMonsters = playerData.extraMagicMonsters;
