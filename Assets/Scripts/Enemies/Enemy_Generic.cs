@@ -13,7 +13,7 @@ public class Enemy_Generic : MonoBehaviour, IEnemy, IDamageable
 
 
     [Range(0f, 50f)]
-    public float speed = 10;
+    public float speed = 1;
     //Damageable
    public void assignDamageStats()
    {
@@ -77,7 +77,7 @@ public class Enemy_Generic : MonoBehaviour, IEnemy, IDamageable
     //set transform position to nearest player
     private Vector3 toPlayerStep()
     {
-        return Vector3.MoveTowards(gameObject.transform.position, getNearestPlayer(), .01f);
+        return Vector3.MoveTowards(gameObject.transform.position, getNearestPlayer(), Time.deltaTime * speed);
     }
 
     //return position of closest player
