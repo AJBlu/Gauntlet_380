@@ -6,7 +6,7 @@ public class PlayerGeneric : MonoBehaviour, IPlayerClass
 {
     PlayerInventory inventory;
     ScreenBounds _screenBounds;
-    PlayerSO playerData;
+    public PlayerSO playerData;
     int _currentHealth, _shotStrength, _magicMonsters, _magicGenerators, _magicShotMonsters, _magicShotGenerators, _meleeMonsters, _armor;
     float _meleeGenerators, _shotSpeed, _runningSpeed;
     

@@ -9,4 +9,5 @@ public class PlayerJoin : Singleton<PlayerJoin>
     public bool warriorJoined;
     public bool wizardJoined;
     public bool valkyrieJoined;
+    public PlayerSO[] playerClasses;
 }
