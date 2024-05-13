@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.InputSystem.LowLevel.InputStateHistory;
 
 public class PlayerGeneric : MonoBehaviour, IPlayerClass
 {
@@ -8,8 +9,22 @@ public class PlayerGeneric : MonoBehaviour, IPlayerClass
     ScreenBounds _screenBounds;
     public PlayerSO playerData;
     int _currentHealth, _shotStrength, _magicMonsters, _magicGenerators, _magicShotMonsters, _magicShotGenerators, _meleeMonsters, _armor, _characterIndex;
-    float _meleeGenerators, _shotSpeed, _runningSpeed;
-    
+    float _meleeGenerators, _shotSpeed, _runningSpeed, _second;
+
+    private void FixedUpdate()
+    {
+        if(_characterIndex != 0)
+        {
+            float regenerationRate = 1.0f;
+            _second += Time.deltaTime;
+            if (_second >= regenerationRate)
+            {
+                _currentHealth -= 1;
+                GameManager.Instance.UpdateHealth(_currentHealth, _characterIndex);
+                _second = 0;
+            }
+        }
+    }
     public void assignPlayerAttributes()
     {
         _currentHealth = playerData.Health;
@@ -94,7 +109,7 @@ public class PlayerGeneric : MonoBehaviour, IPlayerClass
     }
     public void OnPotionPickup(Potions potion)
     {
-        switch(potion) {
+            switch(potion) {
 
             case Potions.ARMORBOOST:
                 _armor = (int)playerData.extraArmor;
@@ -128,9 +143,13 @@ public class PlayerGeneric : MonoBehaviour, IPlayerClass
                 break;
             case Potions.BOMBPOTION:
                 inventory.addPotion();
+                GameManager.Instance.UpdateInventory(inventory._potions, inventory._keys, _characterIndex);
                 break;
             case Potions.KEY:
                 inventory.addKey();
+                GameManager.Instance.UpdateInventory(inventory._potions, inventory._keys, _characterIndex);
+                break;
+            default: 
                 break;
         }
     }

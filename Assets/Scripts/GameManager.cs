@@ -207,4 +207,13 @@ public class GameManager : Singleton<GameManager>
     {
         _valkyrieJoinText.SetActive(false);
     }
+    public IEnumerator PromptPopUp(string prompt)
+    {
+        GameManager.Instance.PromptActivate(prompt);
+        Time.timeScale = 0f;
+        yield return new WaitForSecondsRealtime(1.5f);
+        Time.timeScale = 1f;
+        prompt = "";
+        GameManager.Instance.PromptActivate(prompt);
+    }    
 }

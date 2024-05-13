@@ -15,9 +15,8 @@ public class PlayerController : MonoBehaviour
     private Collider _playerCollider;
     private float _speed;
     private float _rotationSpeed = 1440f;
-    private float _shotDelay = 0.5f;
+    private float _shotDelay = 0.25f;
     private bool _isShooting = true;
-    private bool _performingMagic;
     private PlayerGeneric _playerData;
     public bool hasCharacter;
     public int characterIndex;
@@ -47,15 +46,18 @@ public class PlayerController : MonoBehaviour
     }
     public void OnShootPerformed(InputAction.CallbackContext value)
     {
-        if(hasCharacter)
+        if(Time.timeScale == 1)
         {
-            if (_isShooting == false)
+            if (hasCharacter)
             {
-                Debug.Log("Shooting");
-                GameObject shot;
-                shot = Instantiate(_projectilePrefab, transform.position, Quaternion.identity);
-                shot.GetComponent<Projectile>().SetShotAttributes(_playerData.playerData.ShotStrength, _playerData.playerData.shotSpeed, _lastMovement, this.gameObject);
-                StartCoroutine(ShootingTimer());
+                if (_isShooting == false)
+                {
+                    Debug.Log("Shooting");
+                    GameObject shot;
+                    shot = Instantiate(_projectilePrefab, transform.position, Quaternion.identity);
+                    shot.GetComponent<Projectile>().SetShotAttributes(_playerData.playerData.ShotStrength, _playerData.playerData.shotSpeed, _lastMovement, this.gameObject);
+                    StartCoroutine(ShootingTimer());
+                }
             }
         }
     }
@@ -63,11 +65,13 @@ public class PlayerController : MonoBehaviour
     {
         if(hasCharacter)
         {
-            if (_performingMagic == false)
+            if (Time.timeScale == 1f)
             {
                 if(_playerData.inventory._potions > 0)
                 {
-                    StartCoroutine(MagicAttack());
+                    _playerData.OnMagic();
+                    string prompt = "Magic potions affect everything on screen.";
+                    StartCoroutine(GameManager.Instance.PromptPopUp(prompt));
                 }
             }
         }
@@ -195,18 +199,5 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(_shotDelay);
         _isShooting = false;
         _speed =_playerData.playerData.RunningSpeed;
-    }
-    IEnumerator MagicAttack()
-    {
-        _performingMagic = true;
-        _playerData.OnMagic();
-        string prompt = "Magic potions affect everything on screen.";
-        GameManager.Instance.PromptActivate(prompt);
-        Time.timeScale = 0f;
-        yield return new WaitForSecondsRealtime(1.5f);
-        Time.timeScale = 1f;
-        _performingMagic = false;
-        prompt = "";
-        GameManager.Instance.PromptActivate(prompt);
     }
 }

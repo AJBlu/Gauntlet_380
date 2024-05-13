@@ -6,15 +6,24 @@ public class PlayerInventory : MonoBehaviour
 {
     public int _keys;
     public int _potions;
+    private int _inventoryLimit = 12, _currentInventory = 0;
 
     public void addKey()
     {
-        _keys++;
+        if(_currentInventory < _inventoryLimit)
+        {
+            _keys++;
+            _currentInventory++;
+        }
     }
 
     public void addPotion()
     {
-        _potions++;
+        if (_currentInventory < _inventoryLimit)
+        {
+            _potions++;
+            _currentInventory++;
+        }
     }
 
     public bool hasPotion()
