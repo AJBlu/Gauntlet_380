@@ -4,34 +4,33 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    [SerializeField] private Vector3 playersMiddle;
-    private float cameraY;
-    private float minPositionX;
-    private float maxPositionX;
-    private float minPositionZ;
-    private float maxPositionZ;
+    private Vector3 _playersMiddle;
+    private float _cameraY;
+    private float _minPositionX;
+    private float _maxPositionX;
+    private float _minPositionZ;
+    private float _maxPositionZ;
 
     private void Awake()
     {
-        cameraY = transform.position.y;
+        _cameraY = transform.position.y;
         //This needs to be changed to whatever the levels size is also based on screen size as this affects it(maybe add blank boarder on levels to make up for this)
-        minPositionX = -4f;
-        maxPositionX = 28f;
-        minPositionZ = -7.5f;
-        maxPositionZ = 32.5f;
+        _minPositionX = -4f;
+        _maxPositionX = 28f;
+        _minPositionZ = -7.5f;
+        _maxPositionZ = 32.5f;
     }
 
     private void Update()
     {
-        //This is just a test way to get the middle will be changed later when game is more complete
-        playersMiddle = GameObject.FindGameObjectWithTag("Middle").transform.position;
-        if (playersMiddle != null)
+        _playersMiddle = GameObject.FindGameObjectWithTag("Middle").transform.position;
+        if (_playersMiddle != null)
         {
-            playersMiddle.y = cameraY;
-            if (transform.position.x != playersMiddle.x || transform.position.z != playersMiddle.z)
+            _playersMiddle.y = _cameraY;
+            if (transform.position.x != _playersMiddle.x || transform.position.z != _playersMiddle.z)
             {
-                //Clamps camera at the edge of 
-                transform.position = new Vector3(Mathf.Clamp(playersMiddle.x, minPositionX, maxPositionX), cameraY, Mathf.Clamp(playersMiddle.z, minPositionZ, maxPositionZ));
+                //Clamps camera at the edge of level
+                transform.position = new Vector3(Mathf.Clamp(_playersMiddle.x, _minPositionX, _maxPositionX), _cameraY, Mathf.Clamp(_playersMiddle.z, _minPositionZ, _maxPositionZ));
             }
         }
     }

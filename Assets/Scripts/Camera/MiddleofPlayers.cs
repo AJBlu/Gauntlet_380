@@ -5,75 +5,75 @@ using UnityEngine;
 
 public class MiddleofPlayers : MonoBehaviour
 {
-    private GameObject[] playerTransforms;
-    private float totalX;
-    private float totalY;
-    private float totalZ;
-    private float centerX;
-    private float centerZ;
-    private float distanceX;
-    private float distanceZ;
-    private float tempDistX;
-    private float tempDistZ;
-    private int lengthActive;
+    private GameObject[] _playerTransforms;
+    private float _totalX;
+    private float _totalY;
+    private float _totalZ;
+    private float _centerX;
+    private float _centerZ;
+    private float _distanceX;
+    private float _distanceZ;
+    private float _tempDistX;
+    private float _tempDistZ;
+    private int _lengthActive;
     private void Update()
     {
         //This is just a test way to get the players will be changed when we have the fuction to add new players in when clicking a button
-        playerTransforms = GameObject.FindGameObjectsWithTag("Player");
-        if (playerTransforms.Length != 0)
+        _playerTransforms = GameObject.FindGameObjectsWithTag("Player");
+        if (_playerTransforms.Length != 0)
         {
             //Sets the totals to 0 since this is constantly updating we don't want the total to keep being added to.
-            totalX = 0;
-            totalZ = 0;
-            lengthActive = 0;
-            for (int i = 0; i < playerTransforms.Length; i++)
+            _totalX = 0;
+            _totalZ = 0;
+            _lengthActive = 0;
+            for (int i = 0; i < _playerTransforms.Length; i++)
             {
-                if(playerTransforms[i].GetComponent<PlayerController>().hasCharacter)
+                if(_playerTransforms[i].GetComponent<PlayerController>().hasCharacter)
                 {
-                    totalX += playerTransforms[i].transform.position.x;
-                    totalZ += playerTransforms[i].transform.position.z;
-                    lengthActive++;
+                    _totalX += _playerTransforms[i].transform.position.x;
+                    _totalZ += _playerTransforms[i].transform.position.z;
+                    _lengthActive++;
                 }
             }
-            if(lengthActive != 0)
+            if(_lengthActive != 0)
             {
                 //Calculated center of players by dividing thier position by amount of players
-                centerX = totalX / lengthActive;
-                centerZ = totalZ / lengthActive;
+                _centerX = _totalX / _lengthActive;
+                _centerZ = _totalZ / _lengthActive;
                 //Calculates distance of players so that it can stop the middle from moving if players are to far from each other so that they can't attempt to leave each other
-                for (int i = 0; i < playerTransforms.Length; i++)
+                for (int i = 0; i < _playerTransforms.Length; i++)
                 {
-                    for (int j = i + 1; j < playerTransforms.Length; j++)
+                    for (int j = i + 1; j < _playerTransforms.Length; j++)
                     {
-                        tempDistX = Mathf.Abs(playerTransforms[j].transform.position.x - playerTransforms[i].transform.position.x);
-                        if (tempDistX > distanceX)
+                        _tempDistX = Mathf.Abs(_playerTransforms[j].transform.position.x - _playerTransforms[i].transform.position.x);
+                        if (_tempDistX > _distanceX)
                         {
-                            distanceX = tempDistX;
+                            _distanceX = _tempDistX;
                         }
-                        tempDistZ = Mathf.Abs(playerTransforms[j].transform.position.z - playerTransforms[i].transform.position.z);
-                        if (tempDistZ > distanceZ)
+                        _tempDistZ = Mathf.Abs(_playerTransforms[j].transform.position.z - _playerTransforms[i].transform.position.z);
+                        if (_tempDistZ > _distanceZ)
                         {
-                            distanceZ = tempDistZ;
+                            _distanceZ = _tempDistZ;
                         }
                     }
                 }
                 //Distance may be changed later or made with a changable variable set to 10 for testing purposes.
-                if (distanceX < 10 && distanceZ < 10)
+                if (_distanceX < 10 && _distanceZ < 10)
                 {
-                    transform.position = new Vector3(centerX, transform.position.y, centerZ);
+                    transform.position = new Vector3(_centerX, transform.position.y, _centerZ);
                 }
                 //If statements added to make more smooth transitions as otherwise moving in diagonals would cause it to hard cut
-                if (distanceX > 10 && distanceZ < 10)
+                if (_distanceX > 10 && _distanceZ < 10)
                 {
-                    transform.position = new Vector3(transform.position.x, transform.position.y, centerZ);
+                    transform.position = new Vector3(transform.position.x, transform.position.y, _centerZ);
                 }
-                if (distanceX < 10 && distanceZ > 10)
+                if (_distanceX < 10 && _distanceZ > 10)
                 {
-                    transform.position = new Vector3(centerX, transform.position.y, transform.position.z);
+                    transform.position = new Vector3(_centerX, transform.position.y, transform.position.z);
                 }
                 //Sets distance to 0 as in update it will run through the for statements again to check the distance once more and allow the players to move if need be.
-                distanceX = 0;
-                distanceZ = 0;
+                _distanceX = 0;
+                _distanceZ = 0;
             }
         }
     }
