@@ -11,10 +11,11 @@ public class GameManager : Singleton<GameManager>
     private int _elfHealth, _warriorHealth, _wizardHealth, _valkyrieHealth;
     public int _elfKeys, _elfPotions, _warriorKeys, _warriorPotions, _wizardKeys, _wizardPotions, _valkyrieKeys, _valkyriePotions;
     [SerializeField] private TMP_Text _levelText;
+    [SerializeField] private TMP_Text _promptText;
     [SerializeField] private TMP_Text _elfScoreText, _warriorScoreText, _wizardScoreText, _valkyrieScoreText;
     [SerializeField] private TMP_Text _elfHealthText, _warriorHealthText, _wizardHealthText, _valkyrieHealthText;
     [SerializeField] private TMP_Text _elfKeysText, _elfPotionsText, _warriorKeysText, _warriorPotionsText, _wizardKeysText, _wizardPotionsText, _valkyrieKeysText, _valkyriePotionsText;
-    [SerializeField] private GameObject _elfJoinText, _warriorJoinText, _wizardJoinText, _valkyrieJoinText;
+    [SerializeField] private GameObject _elfJoinText, _warriorJoinText, _wizardJoinText, _valkyrieJoinText, _promptHolder;
 
     //These variables manage when players join and choose their character so that they can be read by all players and add their SO.
     public bool elfJoined;
@@ -59,6 +60,11 @@ public class GameManager : Singleton<GameManager>
         UpdateWizardText();
         UpdateValkyrieText();
         UpdateLevelText();
+    }
+    public void PromptActivate(string promptText)
+    {
+        _promptHolder.SetActive(!_promptHolder.activeInHierarchy);
+        _promptText.text = promptText;
     }
     //Call to update health from other scripts using the character index to check which health to update
     public void UpdateHealth(int health, int characterIndex)

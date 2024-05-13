@@ -234,6 +234,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &323931328 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7056736062766231919, guid: c69fb810aaad52d4bb7ff3f752025c91,
+    type: 3}
+  m_PrefabInstance: {fileID: 1398429763}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &373252196 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1082603180791910632, guid: c69fb810aaad52d4bb7ff3f752025c91,
+    type: 3}
+  m_PrefabInstance: {fileID: 1398429763}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &436420736 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4772585236414193253, guid: c69fb810aaad52d4bb7ff3f752025c91,
+    type: 3}
+  m_PrefabInstance: {fileID: 1398429763}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &755348980
 GameObject:
   m_ObjectHideFlags: 0
@@ -419,6 +437,12 @@ MeshRenderer:
     type: 3}
   m_PrefabInstance: {fileID: 1398429763}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1262607627 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 500052650469068653, guid: c69fb810aaad52d4bb7ff3f752025c91,
+    type: 3}
+  m_PrefabInstance: {fileID: 1398429763}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1398429763
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -550,6 +574,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: Players
       objectReference: {fileID: 0}
+    - target: {fileID: 8477921676205616721, guid: c69fb810aaad52d4bb7ff3f752025c91,
+        type: 3}
+      propertyPath: playerTransforms.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8477921676205616721, guid: c69fb810aaad52d4bb7ff3f752025c91,
+        type: 3}
+      propertyPath: playerTransforms.Array.data[0]
+      value: 
+      objectReference: {fileID: 436420736}
+    - target: {fileID: 8477921676205616721, guid: c69fb810aaad52d4bb7ff3f752025c91,
+        type: 3}
+      propertyPath: playerTransforms.Array.data[1]
+      value: 
+      objectReference: {fileID: 1262607627}
+    - target: {fileID: 8477921676205616721, guid: c69fb810aaad52d4bb7ff3f752025c91,
+        type: 3}
+      propertyPath: playerTransforms.Array.data[2]
+      value: 
+      objectReference: {fileID: 373252196}
+    - target: {fileID: 8477921676205616721, guid: c69fb810aaad52d4bb7ff3f752025c91,
+        type: 3}
+      propertyPath: playerTransforms.Array.data[3]
+      value: 
+      objectReference: {fileID: 323931328}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

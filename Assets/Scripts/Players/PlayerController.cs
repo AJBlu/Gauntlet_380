@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     private float _rotationSpeed = 1440f;
     private float _shotDelay = 0.5f;
     private bool _isShooting = true;
+    private bool _performingMagic;
     private PlayerGeneric _playerData;
     public bool hasCharacter;
     public int characterIndex;
@@ -28,7 +29,7 @@ public class PlayerController : MonoBehaviour
         _playerCollider = GetComponent<Collider>();
         _playerData = gameObject.GetComponent<PlayerGeneric>();
         _selfRenderer = gameObject.GetComponent<MeshRenderer>();
-        transform.position = new Vector3(transform.position.x, 1.5f, transform.position.z);
+        //transform.position = new Vector3(transform.position.x, 1.5f, transform.position.z);
         //This is test code to see if join works as should
         gameObject.GetComponent<MeshRenderer>().enabled = false;
         _speed = 0;
@@ -60,7 +61,16 @@ public class PlayerController : MonoBehaviour
     }
     public void OnMagicPerformed(InputAction.CallbackContext value)
     {
-        _playerData.OnMagic();
+        if(hasCharacter)
+        {
+            if (_performingMagic == false)
+            {
+                if(_playerData.inventory._potions > 0)
+                {
+                    StartCoroutine(MagicAttack());
+                }
+            }
+        }
     }
     public void OnJoinElf(InputAction.CallbackContext value)
     {
@@ -79,6 +89,7 @@ public class PlayerController : MonoBehaviour
                 _selfRenderer.enabled = true;
                 _handRenderer.enabled = true;
                 characterIndex = 1;
+                _playerData.GetCharacterIndex(characterIndex);
                 _playerData.playerData = GameManager.Instance.playerClasses[0];
                 GameManager.Instance.ElfJoined();
                 _playerData.assignPlayerAttributes();
@@ -104,6 +115,7 @@ public class PlayerController : MonoBehaviour
                 _selfRenderer.enabled = true;
                 _handRenderer.enabled = true;
                 characterIndex = 2;
+                _playerData.GetCharacterIndex(characterIndex);
                 _playerData.playerData = GameManager.Instance.playerClasses[1];
                 GameManager.Instance.WarriorJoined();
                 _playerData.assignPlayerAttributes();
@@ -129,6 +141,7 @@ public class PlayerController : MonoBehaviour
                 _selfRenderer.enabled = true;
                 _handRenderer.enabled = true;
                 characterIndex = 3;
+                _playerData.GetCharacterIndex(characterIndex);
                 _playerData.playerData = GameManager.Instance.playerClasses[2];
                 GameManager.Instance.WizardJoined();
                 _playerData.assignPlayerAttributes();
@@ -154,6 +167,7 @@ public class PlayerController : MonoBehaviour
                 _selfRenderer.enabled = true;
                 _handRenderer.enabled = true;
                 characterIndex = 4;
+                _playerData.GetCharacterIndex(characterIndex);
                 _playerData.playerData = GameManager.Instance.playerClasses[3];
                 GameManager.Instance.ValkyrieJoined();
                 _playerData.assignPlayerAttributes();
@@ -181,5 +195,18 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(_shotDelay);
         _isShooting = false;
         _speed =_playerData.playerData.RunningSpeed;
+    }
+    IEnumerator MagicAttack()
+    {
+        _performingMagic = true;
+        _playerData.OnMagic();
+        string prompt = "Magic potions affect everything on screen.";
+        GameManager.Instance.PromptActivate(prompt);
+        Time.timeScale = 0f;
+        yield return new WaitForSecondsRealtime(1.5f);
+        Time.timeScale = 1f;
+        _performingMagic = false;
+        prompt = "";
+        GameManager.Instance.PromptActivate(prompt);
     }
 }

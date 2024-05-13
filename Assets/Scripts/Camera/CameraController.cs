@@ -21,7 +21,7 @@ public class CameraController : MonoBehaviour
         _maxPositionZ = 32.5f;
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         _playersMiddle = GameObject.FindGameObjectWithTag("Middle").transform.position;
         if (_playersMiddle != null)

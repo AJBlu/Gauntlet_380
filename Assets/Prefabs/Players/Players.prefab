@@ -249,9 +249,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e1c6a518a992e445bece547b30f4680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handRenderer: {fileID: 8300582716232809886}
-  projectilePrefab: {fileID: 0}
+  _handRenderer: {fileID: 0}
+  _projectilePrefab: {fileID: 0}
+  _moveInput: {x: 0, y: 0, z: 0}
+  _speed: 0
   hasCharacter: 0
+  characterIndex: 0
 --- !u!54 &8440451890602967226
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -596,9 +599,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e1c6a518a992e445bece547b30f4680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handRenderer: {fileID: 5889552800594154167}
-  projectilePrefab: {fileID: 0}
+  _handRenderer: {fileID: 0}
+  _projectilePrefab: {fileID: 0}
+  _moveInput: {x: 0, y: 0, z: 0}
+  _speed: 0
   hasCharacter: 0
+  characterIndex: 0
 --- !u!54 &2108498194647685671
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1153,9 +1159,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e1c6a518a992e445bece547b30f4680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handRenderer: {fileID: 2743598254383962534}
-  projectilePrefab: {fileID: 0}
+  _handRenderer: {fileID: 0}
+  _projectilePrefab: {fileID: 0}
+  _moveInput: {x: 0, y: 0, z: 0}
+  _speed: 0
   hasCharacter: 0
+  characterIndex: 0
 --- !u!54 &4087308779448236804
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1605,9 +1614,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e1c6a518a992e445bece547b30f4680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handRenderer: {fileID: 5480511210772586739}
-  projectilePrefab: {fileID: 0}
+  _handRenderer: {fileID: 0}
+  _projectilePrefab: {fileID: 0}
+  _moveInput: {x: 0, y: 0, z: 0}
+  _speed: 0
   hasCharacter: 0
+  characterIndex: 0
 --- !u!54 &8741298443742751996
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1856,6 +1868,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7350cbc57e05f994a9f4c3a3af81e702, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerTransforms:
+  - {fileID: 4772585236414193253}
+  - {fileID: 500052650469068653}
+  - {fileID: 1082603180791910632}
+  - {fileID: 7056736062766231919}
 --- !u!1001 &881635080317019558
 PrefabInstance:
   m_ObjectHideFlags: 0

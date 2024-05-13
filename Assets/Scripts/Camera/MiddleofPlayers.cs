@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class MiddleofPlayers : MonoBehaviour
 {
-    private GameObject[] _playerTransforms;
+    [SerializeField] private GameObject[] playerTransforms;
     private float _totalX;
     private float _totalY;
     private float _totalZ;
@@ -18,20 +18,18 @@ public class MiddleofPlayers : MonoBehaviour
     private int _lengthActive;
     private void Update()
     {
-        //This is just a test way to get the players will be changed when we have the fuction to add new players in when clicking a button
-        _playerTransforms = GameObject.FindGameObjectsWithTag("Player");
-        if (_playerTransforms.Length != 0)
+        if (playerTransforms.Length != 0)
         {
             //Sets the totals to 0 since this is constantly updating we don't want the total to keep being added to.
             _totalX = 0;
             _totalZ = 0;
             _lengthActive = 0;
-            for (int i = 0; i < _playerTransforms.Length; i++)
+            for (int i = 0; i < playerTransforms.Length; i++)
             {
-                if(_playerTransforms[i].GetComponent<PlayerController>().hasCharacter)
+                if(playerTransforms[i].GetComponent<PlayerController>().hasCharacter)
                 {
-                    _totalX += _playerTransforms[i].transform.position.x;
-                    _totalZ += _playerTransforms[i].transform.position.z;
+                    _totalX += playerTransforms[i].transform.position.x;
+                    _totalZ += playerTransforms[i].transform.position.z;
                     _lengthActive++;
                 }
             }
@@ -41,16 +39,16 @@ public class MiddleofPlayers : MonoBehaviour
                 _centerX = _totalX / _lengthActive;
                 _centerZ = _totalZ / _lengthActive;
                 //Calculates distance of players so that it can stop the middle from moving if players are to far from each other so that they can't attempt to leave each other
-                for (int i = 0; i < _playerTransforms.Length; i++)
+                for (int i = 0; i < playerTransforms.Length; i++)
                 {
-                    for (int j = i + 1; j < _playerTransforms.Length; j++)
+                    for (int j = i + 1; j < playerTransforms.Length; j++)
                     {
-                        _tempDistX = Mathf.Abs(_playerTransforms[j].transform.position.x - _playerTransforms[i].transform.position.x);
+                        _tempDistX = Mathf.Abs(playerTransforms[j].transform.position.x - playerTransforms[i].transform.position.x);
                         if (_tempDistX > _distanceX)
                         {
                             _distanceX = _tempDistX;
                         }
-                        _tempDistZ = Mathf.Abs(_playerTransforms[j].transform.position.z - _playerTransforms[i].transform.position.z);
+                        _tempDistZ = Mathf.Abs(playerTransforms[j].transform.position.z - playerTransforms[i].transform.position.z);
                         if (_tempDistZ > _distanceZ)
                         {
                             _distanceZ = _tempDistZ;

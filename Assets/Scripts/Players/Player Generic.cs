@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class PlayerGeneric : MonoBehaviour, IPlayerClass
 {
-    PlayerInventory inventory;
+    public PlayerInventory inventory;
     ScreenBounds _screenBounds;
     public PlayerSO playerData;
-    int _currentHealth, _shotStrength, _magicMonsters, _magicGenerators, _magicShotMonsters, _magicShotGenerators, _meleeMonsters, _armor;
+    int _currentHealth, _shotStrength, _magicMonsters, _magicGenerators, _magicShotMonsters, _magicShotGenerators, _meleeMonsters, _armor, _characterIndex;
     float _meleeGenerators, _shotSpeed, _runningSpeed;
     
     public void assignPlayerAttributes()
@@ -26,7 +26,7 @@ public class PlayerGeneric : MonoBehaviour, IPlayerClass
         _armor = (int)playerData.Armor;
         inventory = gameObject.AddComponent<PlayerInventory>();
         _screenBounds = gameObject.AddComponent<ScreenBounds>();
-
+        GameManager.Instance.UpdateHealth(_currentHealth, _characterIndex);
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -74,6 +74,7 @@ public class PlayerGeneric : MonoBehaviour, IPlayerClass
                 }
             }
         }
+        GameManager.Instance.UpdateInventory(inventory._potions, inventory._keys, _characterIndex);
     }
 
     public void OnShoot()
@@ -89,6 +90,7 @@ public class PlayerGeneric : MonoBehaviour, IPlayerClass
     public void DamagePlayer(int damageTaken)
     {
         _currentHealth -= (damageTaken - _armor);
+        GameManager.Instance.UpdateHealth(_currentHealth, _characterIndex);
     }
     public void OnPotionPickup(Potions potion)
     {
@@ -125,6 +127,10 @@ public class PlayerGeneric : MonoBehaviour, IPlayerClass
                 StartCoroutine("isInvisible");
                 break;
         }
+    }
+    public void GetCharacterIndex(int characterIndex)
+    {
+        _characterIndex = characterIndex;
     }
     IEnumerator isInvisible()
     {
