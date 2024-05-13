@@ -7,7 +7,7 @@ public class Projectile : MonoBehaviour
     int _damage;
     float _shotSpeed;
     Vector3 _movementDirection;
-    GameObject _origin;
+    public GameObject _origin;
     public void SetShotAttributes(int damage, float shotSpeed, Vector3 movementDirection, GameObject origin)
     {
         damage = _damage;
