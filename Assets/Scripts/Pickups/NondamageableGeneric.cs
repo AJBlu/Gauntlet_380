@@ -1,18 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class NondamageableGeneric : MonoBehaviour
+public class NondamageableGeneric : IPickup
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    PotionSO value;
 
-    // Update is called once per frame
-    void Update()
+    public void OnTriggerEnter(Collider other)
     {
-        
+        if(other.gameObject.tag == "Player")
+        {
+            other.GetComponent<PlayerGeneric>().OnPotionPickup(value.potion);
+        }
+    }
+    public Potions onPickUp()
+    {
+        return value.potion;
     }
 }
