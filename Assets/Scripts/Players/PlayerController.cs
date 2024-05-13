@@ -142,9 +142,9 @@ public class PlayerController : MonoBehaviour
         if(hasCharacter == false)
         {
             //Adds ValkyrieSO to Player Generic
-            if (PlayerJoin.Instance.valkyrieJoined == false)
+            if (GameManager.Instance.valkyrieJoined == false)
             {
-                PlayerJoin.Instance.valkyrieJoined = true;
+                GameManager.Instance.valkyrieJoined = true;
                 hasCharacter = true;
                 transform.parent = null;
                 this.GetComponent<MeshRenderer>().material.color = Color.blue;
@@ -154,7 +154,7 @@ public class PlayerController : MonoBehaviour
                 _selfRenderer.enabled = true;
                 _handRenderer.enabled = true;
                 characterIndex = 4;
-                _playerData.playerData = PlayerJoin.Instance.playerClasses[3];
+                _playerData.playerData = GameManager.Instance.playerClasses[3];
                 GameManager.Instance.ValkyrieJoined();
                 _playerData.assignPlayerAttributes();
                 _speed = _playerData.playerData.RunningSpeed;

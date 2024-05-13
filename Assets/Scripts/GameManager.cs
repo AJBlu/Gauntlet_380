@@ -10,6 +10,7 @@ public class GameManager : Singleton<GameManager>
     private int _elfScore, _warriorScore, _wizardScore, _valkyrieScore;
     private int _elfHealth, _warriorHealth, _wizardHealth, _valkyrieHealth;
     public int _elfKeys, _elfPotions, _warriorKeys, _warriorPotions, _wizardKeys, _wizardPotions, _valkyrieKeys, _valkyriePotions;
+    [SerializeField] private TMP_Text _levelText;
     [SerializeField] private TMP_Text _elfScoreText, _warriorScoreText, _wizardScoreText, _valkyrieScoreText;
     [SerializeField] private TMP_Text _elfHealthText, _warriorHealthText, _wizardHealthText, _valkyrieHealthText;
     [SerializeField] private TMP_Text _elfKeysText, _elfPotionsText, _warriorKeysText, _warriorPotionsText, _wizardKeysText, _wizardPotionsText, _valkyrieKeysText, _valkyriePotionsText;
@@ -22,11 +23,16 @@ public class GameManager : Singleton<GameManager>
     public bool valkyrieJoined;
     public PlayerSO[] playerClasses;
 
+    private void Update()
+    {
+        UpdateText();
+    }
     //load next level
     public void LoadNextLevel()
     {
 
     }
+    //Call whenever score would be changed (i.e. when a enemy is defeated, treasure is grabbed, potion, etc.) 
     public void AddScore(int scoreAdd, int characterIndex)
     {
         if(characterIndex == 1)
@@ -46,17 +52,63 @@ public class GameManager : Singleton<GameManager>
             _valkyrieScore += scoreAdd;
         }
     }
-    private void Update()
-    {
-        UpdateText();
-    }
     public void UpdateText()
     {
         UpdateElfText();
         UpdateWarriorText();
         UpdateWizardText();
         UpdateValkyrieText();
+        UpdateLevelText();
     }
+    //Call to update health from other scripts using the character index to check which health to update
+    public void UpdateHealth(int health, int characterIndex)
+    {
+        if (characterIndex == 1)
+        {
+            _elfHealth = health;
+        }
+        if (characterIndex == 2)
+        {
+            _warriorHealth = health;
+        }
+        if (characterIndex == 3)
+        {
+            _wizardHealth = health;
+        }
+        if (characterIndex == 4)
+        {
+            _valkyrieHealth = health;
+        }
+    }
+    //Call whenever the inventory would changed
+    public void UpdateInventory(int potions, int keys, int characterIndex)
+    {
+        if (characterIndex == 1)
+        {
+            _elfKeys = keys;
+            _elfPotions = potions;
+        }
+        if (characterIndex == 2)
+        {
+            _warriorKeys = keys;
+            _warriorPotions = potions;
+        }
+        if (characterIndex == 3)
+        {
+            _wizardKeys = keys;
+            _wizardPotions = potions;
+        }
+        if (characterIndex == 4)
+        {
+            _valkyrieKeys = keys;
+            _valkyriePotions = potions;
+        }
+    }
+    public void UpdateLevelText()
+    {
+        _levelText.text = _level.ToString();
+    }
+    //Text updates for each character and way to disable text telling you how to join
     public void UpdateElfText()
     {
         _elfKeysText.text = null;
