@@ -5,13 +5,13 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     int _damage;
-    public float _shotSpeed;
-    public Vector3 _movementDirection;
-    GameObject _origin;
+    float _shotSpeed;
+    Vector3 _movementDirection;
+    public GameObject _origin;
     public void SetShotAttributes(int damage, float shotSpeed, Vector3 movementDirection, GameObject origin)
     {
-        _damage = damage;
-        _shotSpeed = shotSpeed;
+        damage = _damage;
+        shotSpeed = _shotSpeed;
         _movementDirection = movementDirection;
         _origin = origin;
 

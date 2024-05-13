@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PotionSO : ScriptableObject
 {
-    [SerializeField]
-    Potions potion;
+    public Potions potion;
 
 }

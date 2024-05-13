@@ -126,6 +126,12 @@ public class PlayerGeneric : MonoBehaviour, IPlayerClass
             case Potions.INVISIBILITY:
                 StartCoroutine("isInvisible");
                 break;
+            case Potions.BOMBPOTION:
+                inventory.addPotion();
+                break;
+            case Potions.KEY:
+                inventory.addKey();
+                break;
         }
     }
     public void GetCharacterIndex(int characterIndex)

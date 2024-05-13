@@ -13,6 +13,7 @@ public enum Potions
     DESTRUCTIBLEFOOD,
     FOOD,
     INVISIBILITY,
-    BOMBPOTION
+    BOMBPOTION,
+    KEY
     
 }
