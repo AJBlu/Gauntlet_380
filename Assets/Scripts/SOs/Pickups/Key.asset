@@ -12,5 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 024f23fb9cc4a82428510aff7dc019c2, type: 3}
   m_Name: Key
   m_EditorClassIdentifier: 
-  potion: 5
-  Health: 1
+  potion: 10
