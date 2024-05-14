@@ -93,7 +93,7 @@ public class Enemy_Generic : MonoBehaviour, IEnemy, IDamageable
 
         foreach (PlayerController player in FindObjectsOfType<PlayerController>())
         {
-            Debug.Log($"{FindObjectsOfType<PlayerController>().Length}");
+            //Debug.Log($"{FindObjectsOfType<PlayerController>().Length}");
             if(Vector3.Distance(player.transform.position, this.transform.position) < currentShortestPath)
             {
                 //Debug.LogFormat($"Nearest player is: {player.name}");

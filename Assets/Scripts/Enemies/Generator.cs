@@ -13,6 +13,7 @@ public class Generator : MonoBehaviour, IDamageable
     [SerializeField]
     GameObject[] ranks;
     bool isRunning;
+    public Transform v;
 
     private void Awake()
     {
@@ -23,7 +24,7 @@ public class Generator : MonoBehaviour, IDamageable
     {
         if(gameObject.GetComponent<Renderer>().isVisible && !isRunning)
         {
-            StartCoroutine("spawn");
+            StartCoroutine("spawnCoroutine");
         }
     }
     public void assignDamageStats()
@@ -75,12 +76,11 @@ public class Generator : MonoBehaviour, IDamageable
 
     private void spawn(GameObject monster)
     {
-        Transform v = transform;
-        v.position = Vector3.forward * 1.5f;
-        RaycastHit hit;
+        v.position = transform.position + (Vector3.forward);
+        //RaycastHit hit;
         if (gameObject.GetComponent<Renderer>().isVisible)
         {
-            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 1.5f))
+            /*if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 1.5f))
             {
                 v.position = Vector3.forward * 1.5f;
             }
@@ -115,13 +115,14 @@ public class Generator : MonoBehaviour, IDamageable
             {
                 v.position = (Vector3.right + Vector3.forward) * 1.5f;
 
-            }
+            }*/
+
 
             Instantiate(monster, v);
         }
     }
 
-    private IEnumerator spawn()
+    public IEnumerator spawnCoroutine()
     {
         Debug.Log("Spawn!");
         isRunning = true;
