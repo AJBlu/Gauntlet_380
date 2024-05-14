@@ -19,15 +19,18 @@ public class Generator : MonoBehaviour, IDamageable
         points = stats.points;
     }
 
-    public void onDeath(Attacks attack)
+    public void onDeath(Attacks attackType, Hero hero)
     {
-        //send score
-        Destroy(gameObject);
+        SendScore(points, hero);
     }
 
-    public void onDamage(int damageValue, Attacks attack)
+    public void onDamage(int damageValue, Attacks attack, Hero hero)
     {
-
+        health -= damageValue;
+        if (health <= 0)
+        {
+            onDeath(attack, hero);
+        }
     }
 
     private void spawnMonster()
@@ -50,7 +53,7 @@ public class Generator : MonoBehaviour, IDamageable
     {
         RaycastHit hit;
         if(Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 1.5f)){
-
+            Instantiate(monster, transform.position + );
         }
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.back), out hit, 1.5f))
         {
