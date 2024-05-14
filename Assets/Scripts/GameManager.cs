@@ -10,6 +10,7 @@ public class GameManager : Singleton<GameManager>
     private int _elfScore, _warriorScore, _wizardScore, _valkyrieScore;
     private int _elfHealth, _warriorHealth, _wizardHealth, _valkyrieHealth;
     public int _elfKeys, _elfPotions, _warriorKeys, _warriorPotions, _wizardKeys, _wizardPotions, _valkyrieKeys, _valkyriePotions;
+    [SerializeField] private GameObject _currentLevel;
     [SerializeField] private TMP_Text _levelText;
     [SerializeField] private TMP_Text _promptText;
     [SerializeField] private TMP_Text _elfScoreText, _warriorScoreText, _wizardScoreText, _valkyrieScoreText;
@@ -30,7 +31,7 @@ public class GameManager : Singleton<GameManager>
     public bool wizardNotPlaying = true;
     public bool valkyrieNotPlaying = true;
     public PlayerSO[] playerClasses;
-
+    public GameObject[] levels;
     private void Update()
     {
         UpdateText();
@@ -44,6 +45,14 @@ public class GameManager : Singleton<GameManager>
             }
         }
     }
+    //This is for testing levels loading ONLY!!!!
+    /*private void OnGUI()
+    {
+        if(GUILayout.Button("Load Next"))
+        {
+            LoadNextLevel();
+        }
+    }*/
     public void GameOver()
     {
         Time.timeScale = 0f;
@@ -55,13 +64,26 @@ public class GameManager : Singleton<GameManager>
     {
         _gameOverGO.SetActive(false);
         isGameOver = false;
-        //Add something to load in level 1
+        //Only use if you have levels in your Levels Array under GameManager.
+        //LoadLevel1();
         Time.timeScale = 1f;
+    }
+    public void LoadLevel1()
+    {
+        _level = 1000;
+        LoadNextLevel();
     }
     //load next level
     public void LoadNextLevel()
     {
-
+        Destroy(_currentLevel);
+        _level++;
+        if(_level > levels.Length - 1)
+        {
+            _level = 0;
+        }
+        Debug.Log(_level);
+        _currentLevel = Instantiate(levels[_level].gameObject);
     }
     //Call whenever score would be changed (i.e. when a enemy is defeated, treasure is grabbed, potion, etc.) 
     public void AddScore(int scoreAdd, Hero heroEnum)

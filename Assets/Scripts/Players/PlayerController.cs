@@ -317,6 +317,7 @@ public class PlayerController : MonoBehaviour
         if(GameManager.Instance.isGameOver)
         {
             GameManager.Instance.ResetGame();
+            _parentTransform.position = Vector3.zero;
             _playerData.hasSpawnedOnce = false;
         }
     }

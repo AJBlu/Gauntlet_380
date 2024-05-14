@@ -1430,7 +1430,7 @@ MonoBehaviour:
     m_ActionId: 330f46f2-3b19-442f-9942-b0d22bd02f44
     m_ActionName: Player2/ResetGame[/XInputControllerWindows1/start]
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: Keyboard
+  m_DefaultControlScheme: Controller
   m_DefaultActionMap: Player1
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
