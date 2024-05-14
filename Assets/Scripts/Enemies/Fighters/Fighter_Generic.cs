@@ -7,12 +7,13 @@ public class Fighter_Generic : Enemy_Generic
 {
     void OnTriggerEnter(Collider col)
     {
-        attack(col.gameObject);
+        if(col.gameObject.tag == "Player")
+            attack(col.gameObject);
     }
 
     public override void attack(GameObject player)
     {
-        base.attack(player);
+        //base.attack(player);
         player.GetComponent<PlayerGeneric>().DamagePlayer(enemyData.meleeDamage);
 
         //implement melee attack pattern

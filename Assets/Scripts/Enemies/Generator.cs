@@ -7,7 +7,7 @@ public class Generator : MonoBehaviour, IDamageable
     [SerializeField]
     GeneratorSO stats;
     
-    int health;
+    public int health;
     int points;
     Rank spawningRank;
     [SerializeField]
@@ -37,6 +37,8 @@ public class Generator : MonoBehaviour, IDamageable
     public void onDeath(Attacks attack, Hero hero)
     {
         SendScore(points, hero);
+        StopCoroutine("spawnCoroutine");
+        Destroy(gameObject);
 
     }
     public void SendScore(int points, Hero hero)
@@ -51,8 +53,9 @@ public class Generator : MonoBehaviour, IDamageable
     }
     public void onDamage(int damageValue, Attacks attack, Hero hero)
     {
+        Debug.Log("Generator Hit");
         health -= damageValue;
-        if (health <= 0)
+        if (health < 1)
         {
             onDeath(attack, hero);
         }
@@ -76,7 +79,6 @@ public class Generator : MonoBehaviour, IDamageable
 
     private void spawn(GameObject monster)
     {
-        v.position = transform.position + (Vector3.forward);
         //RaycastHit hit;
         if (gameObject.GetComponent<Renderer>().isVisible)
         {
@@ -118,7 +120,7 @@ public class Generator : MonoBehaviour, IDamageable
             }*/
 
 
-            Instantiate(monster, v);
+            Instantiate(monster, transform.position + getNearestPlayerNormalized(), Quaternion.identity);
         }
     }
 
@@ -129,5 +131,23 @@ public class Generator : MonoBehaviour, IDamageable
         spawnMonster();
         yield return new WaitForSeconds(2f);
         isRunning = false;
+    }
+    private Vector3 getNearestPlayerNormalized()
+    {
+        Vector3 closestEnemy = transform.position;
+        float currentShortestPath = float.MaxValue;
+
+        foreach (PlayerController player in FindObjectsOfType<PlayerController>())
+        {
+            //Debug.Log($"{FindObjectsOfType<PlayerController>().Length}");
+            if (Vector3.Distance(player.transform.position, this.transform.position) < currentShortestPath)
+            {
+                //Debug.LogFormat($"Nearest player is: {player.name}");
+                closestEnemy = player.transform.position;
+                currentShortestPath = Vector3.Distance(player.transform.position, this.transform.position);
+            }
+        }
+        return closestEnemy.normalized;
+
     }
 }

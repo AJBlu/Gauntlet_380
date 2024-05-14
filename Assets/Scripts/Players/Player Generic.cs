@@ -5,12 +5,18 @@ using UnityEngine;
 
 public class PlayerGeneric : MonoBehaviour, IPlayerClass
 {
-    PlayerInventory inventory;
+    public PlayerInventory inventory;
     ScreenBounds _screenBounds;
-    PlayerSO playerData;
+    public PlayerSO playerData;
     int _currentHealth, _shotStrength, _magicMonsters, _magicGenerators, _magicShotMonsters, _magicShotGenerators, _meleeMonsters, _armor;
     float _meleeGenerators, _shotSpeed, _runningSpeed;
     public Hero hero;
+
+    private void Awake()
+    {
+        assignPlayerAttributes();
+
+    }
     public void assignPlayerAttributes()
     {
         _currentHealth = playerData.Health;
@@ -31,7 +37,10 @@ public class PlayerGeneric : MonoBehaviour, IPlayerClass
     }
     private void OnTriggerEnter(Collider other)
     {
-        OnFight(other);
+        if(other.tag == "Enemy" || other.tag == "Generator")
+            OnFight(other);
+
+
         if (other.tag == "Projectile")
         {
             if (other.gameObject.GetComponent<Projectile>()._origin.tag == "Enemy")
@@ -41,7 +50,7 @@ public class PlayerGeneric : MonoBehaviour, IPlayerClass
             }
             else
             {
-                Destroy(other.gameObject);
+                //Destroy(other.gameObject);
             }
         }
     }
@@ -149,5 +158,10 @@ public class PlayerGeneric : MonoBehaviour, IPlayerClass
     IEnumerator isInvisible()
     {
         yield return new WaitForSeconds(5);
+    }
+    public IEnumerator hungry()
+    {
+        DamagePlayer(1);
+        yield return new WaitForSeconds(1f);
     }
 }

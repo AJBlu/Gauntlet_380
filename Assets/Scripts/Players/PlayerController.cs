@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     private bool _isShooting = true;
     private PlayerGeneric _playerData;
     public bool hasCharacter;
-    public int characterIndex;
+    public Hero characterIndex;
 
 
     private void Awake()
@@ -92,8 +92,8 @@ public class PlayerController : MonoBehaviour
                 _rb.useGravity = true;
                 _selfRenderer.enabled = true;
                 _handRenderer.enabled = true;
-                characterIndex = 1;
-                _playerData.GetCharacterIndex(characterIndex);
+                characterIndex = Hero.ELF;
+                _playerData.hero = characterIndex;
                 _playerData.playerData = GameManager.Instance.playerClasses[0];
                 GameManager.Instance.ElfJoined();
                 _playerData.assignPlayerAttributes();
@@ -118,8 +118,8 @@ public class PlayerController : MonoBehaviour
                 _rb.useGravity = true;
                 _selfRenderer.enabled = true;
                 _handRenderer.enabled = true;
-                characterIndex = 2;
-                _playerData.GetCharacterIndex(characterIndex);
+                characterIndex = Hero.WARRIOR;
+                _playerData.hero = characterIndex;
                 _playerData.playerData = GameManager.Instance.playerClasses[1];
                 GameManager.Instance.WarriorJoined();
                 _playerData.assignPlayerAttributes();
@@ -144,8 +144,8 @@ public class PlayerController : MonoBehaviour
                 _rb.useGravity = true;
                 _selfRenderer.enabled = true;
                 _handRenderer.enabled = true;
-                characterIndex = 3;
-                _playerData.GetCharacterIndex(characterIndex);
+                characterIndex = Hero.MAGE;
+                _playerData.hero = characterIndex;
                 _playerData.playerData = GameManager.Instance.playerClasses[2];
                 GameManager.Instance.WizardJoined();
                 _playerData.assignPlayerAttributes();
@@ -170,8 +170,8 @@ public class PlayerController : MonoBehaviour
                 _rb.useGravity = true;
                 _selfRenderer.enabled = true;
                 _handRenderer.enabled = true;
-                characterIndex = 4;
-                _playerData.GetCharacterIndex(characterIndex);
+                characterIndex = Hero.VALKYRIE;
+                _playerData.hero = characterIndex;
                 _playerData.playerData = GameManager.Instance.playerClasses[3];
                 GameManager.Instance.ValkyrieJoined();
                 _playerData.assignPlayerAttributes();
