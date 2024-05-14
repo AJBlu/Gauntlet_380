@@ -14,19 +14,49 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] private TMP_Text _promptText;
     [SerializeField] private TMP_Text _elfScoreText, _warriorScoreText, _wizardScoreText, _valkyrieScoreText;
     [SerializeField] private TMP_Text _elfHealthText, _warriorHealthText, _wizardHealthText, _valkyrieHealthText;
+    [SerializeField] private TMP_Text _elfTimerText, _warriorTimerText, _wizardTimerText, _valkyrieTimerText;
     [SerializeField] private TMP_Text _elfKeysText, _elfPotionsText, _warriorKeysText, _warriorPotionsText, _wizardKeysText, _wizardPotionsText, _valkyrieKeysText, _valkyriePotionsText;
-    [SerializeField] private GameObject _elfJoinText, _warriorJoinText, _wizardJoinText, _valkyrieJoinText, _promptHolder;
+    [SerializeField] private GameObject _gameOverGO, _elfJoinText, _warriorJoinText, _wizardJoinText, _valkyrieJoinText, _promptHolder, _elfTimerGO, _warriorTimerGO, _wizardTimerGO, _valkyrieTimerGO;
 
     //These variables manage when players join and choose their character so that they can be read by all players and add their SO.
+    public bool isGameOver;
     public bool elfJoined;
     public bool warriorJoined;
     public bool wizardJoined;
     public bool valkyrieJoined;
+    public bool hasGameStarted = false;
+    public bool elfNotPlaying = true;
+    public bool warriorNotPlaying = true;
+    public bool wizardNotPlaying = true;
+    public bool valkyrieNotPlaying = true;
     public PlayerSO[] playerClasses;
 
     private void Update()
     {
         UpdateText();
+
+        if(hasGameStarted)
+        {
+            if(elfNotPlaying && warriorNotPlaying && wizardNotPlaying && valkyrieNotPlaying)
+            {
+                Debug.Log("Game is Over");
+                GameOver();
+            }
+        }
+    }
+    public void GameOver()
+    {
+        Time.timeScale = 0f;
+        _gameOverGO.SetActive(true);
+        hasGameStarted = false;
+        isGameOver = true;
+    }
+    public void ResetGame()
+    {
+        _gameOverGO.SetActive(false);
+        isGameOver = false;
+        //Add something to load in level 1
+        Time.timeScale = 1f;
     }
     //load next level
     public void LoadNextLevel()
@@ -34,21 +64,21 @@ public class GameManager : Singleton<GameManager>
 
     }
     //Call whenever score would be changed (i.e. when a enemy is defeated, treasure is grabbed, potion, etc.) 
-    public void AddScore(int scoreAdd, int characterIndex)
+    public void AddScore(int scoreAdd, Hero heroEnum)
     {
-        if(characterIndex == 1)
+        if(heroEnum == Hero.ELF)
         {
             _elfScore += scoreAdd;
         }
-        if(characterIndex == 2)
+        if(heroEnum == Hero.WARRIOR)
         {
             _warriorScore += scoreAdd;
         }
-        if(characterIndex == 3)
+        if(heroEnum == Hero.MAGE)
         {
             _wizardScore += scoreAdd;
         }
-        if(characterIndex == 4)
+        if(heroEnum == Hero.VALKYRIE)
         {
             _valkyrieScore += scoreAdd;
         }
@@ -67,44 +97,44 @@ public class GameManager : Singleton<GameManager>
         _promptText.text = promptText;
     }
     //Call to update health from other scripts using the character index to check which health to update
-    public void UpdateHealth(int health, int characterIndex)
+    public void UpdateHealth(int health, Hero heroEnum)
     {
-        if (characterIndex == 1)
+        if (heroEnum == Hero.ELF)
         {
             _elfHealth = health;
         }
-        if (characterIndex == 2)
+        if (heroEnum == Hero.WARRIOR)
         {
             _warriorHealth = health;
         }
-        if (characterIndex == 3)
+        if (heroEnum == Hero.MAGE)
         {
             _wizardHealth = health;
         }
-        if (characterIndex == 4)
+        if (heroEnum == Hero.VALKYRIE)
         {
             _valkyrieHealth = health;
         }
     }
     //Call whenever the inventory would changed
-    public void UpdateInventory(int potions, int keys, int characterIndex)
+    public void UpdateInventory(int potions, int keys, Hero heroEnum)
     {
-        if (characterIndex == 1)
+        if (heroEnum == Hero.ELF)
         {
             _elfKeys = keys;
             _elfPotions = potions;
         }
-        if (characterIndex == 2)
+        if (heroEnum == Hero.WARRIOR)
         {
             _warriorKeys = keys;
             _warriorPotions = potions;
         }
-        if (characterIndex == 3)
+        if (heroEnum == Hero.MAGE)
         {
             _wizardKeys = keys;
             _wizardPotions = potions;
         }
-        if (characterIndex == 4)
+        if (heroEnum == Hero.VALKYRIE)
         {
             _valkyrieKeys = keys;
             _valkyriePotions = potions;
@@ -137,6 +167,20 @@ public class GameManager : Singleton<GameManager>
     public void ElfJoined()
     {
         _elfJoinText.SetActive(false);
+        _elfKeysText.enabled = true;
+        _elfPotionsText.enabled = true;
+        _elfTimerGO.SetActive(false);
+    }
+    public void ElfDeadPrompt()
+    {
+        _elfJoinText.SetActive(true);
+        _elfKeysText.enabled = false;
+        _elfPotionsText.enabled = false;
+        _elfTimerGO.SetActive(true);
+    }
+    public void ElfHasReset()
+    {
+        _elfTimerGO.SetActive(false);
     }
     public void UpdateWarriorText()
     {
@@ -160,6 +204,20 @@ public class GameManager : Singleton<GameManager>
     public void WarriorJoined()
     {
         _warriorJoinText.SetActive(false);
+        _warriorKeysText.enabled = true;
+        _warriorPotionsText.enabled = true;
+        _warriorTimerGO.SetActive(false);
+    }
+    public void WarriorDeadPrompt()
+    {
+        _warriorJoinText.SetActive(true);
+        _warriorKeysText.enabled = false;
+        _warriorPotionsText.enabled = false;
+        _warriorTimerGO.SetActive(true);
+    }
+    public void WarriorHasReset()
+    {
+        _warriorTimerGO.SetActive(false);
     }
     public void UpdateWizardText()
     {
@@ -183,6 +241,20 @@ public class GameManager : Singleton<GameManager>
     public void WizardJoined()
     {
         _wizardJoinText.SetActive(false);
+        _wizardKeysText.enabled = true;
+        _wizardPotionsText.enabled = true;
+        _wizardTimerGO.SetActive(false);
+    }
+    public void WizardDeadPrompt()
+    {
+        _wizardJoinText.SetActive(true);
+        _wizardKeysText.enabled = false;
+        _wizardPotionsText.enabled = false;
+        _wizardTimerGO.SetActive(true);
+    }
+    public void WizardHasReset()
+    {
+        _wizardTimerGO.SetActive(false);
     }
     public void UpdateValkyrieText()
     {
@@ -206,6 +278,40 @@ public class GameManager : Singleton<GameManager>
     public void ValkyrieJoined()
     {
         _valkyrieJoinText.SetActive(false);
+        _valkyrieKeysText.enabled = true;
+        _valkyriePotionsText.enabled = true;
+        _valkyrieTimerGO.SetActive(false);
+    }
+    public void ValkyrieDeadPrompt()
+    {
+        _valkyrieJoinText.SetActive(true);
+        _valkyrieKeysText.enabled = false;
+        _valkyriePotionsText.enabled = false;
+        _valkyrieTimerGO.SetActive(true);
+    }
+    public void ValkyrieHasReset()
+    {
+        _valkyrieTimerGO.SetActive(false);
+    }
+    public void TimerTextUpdate(float timerValue, Hero heroEnum)
+    {
+        float seconds = Mathf.RoundToInt(timerValue);
+        if(heroEnum == Hero.ELF)
+        {
+            _elfTimerText.text = seconds.ToString();
+        }
+        if (heroEnum == Hero.WARRIOR)
+        {
+            _warriorTimerText.text = seconds.ToString();
+        }
+        if (heroEnum == Hero.MAGE)
+        {
+            _wizardTimerText.text = seconds.ToString();
+        }
+        if (heroEnum == Hero.VALKYRIE)
+        {
+            _valkyrieTimerText.text = seconds.ToString();
+        }
     }
     public IEnumerator PromptPopUp(string prompt)
     {

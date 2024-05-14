@@ -74,7 +74,7 @@ public class Enemy_Generic : MonoBehaviour, IEnemy, IDamageable
             //TODO once scoring system and UI events are being made
             //fire off score event
 
-
+            GameManager.Instance.AddScore(points, hero);
         }
     }
 
