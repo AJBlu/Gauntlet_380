@@ -49,18 +49,34 @@ public class Generator : MonoBehaviour, IDamageable
     private void spawn(GameObject monster)
     {
         RaycastHit hit;
-        if(Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 1.5f)){
+        if(!Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 1.5f)){
 
         }
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.back), out hit, 1.5f))
+        else if (!Physics.Raycast(transform.position, transform.TransformDirection(Vector3.back), out hit, 1.5f))
         {
 
         }
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.left), out hit, 1.5f))
+        else if (!Physics.Raycast(transform.position, transform.TransformDirection(Vector3.left), out hit, 1.5f))
         {
 
         }
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.right), out hit, 1.5f))
+        else if (!Physics.Raycast(transform.position, transform.TransformDirection(Vector3.right), out hit, 1.5f))
+        {
+
+        }
+        else if (!Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward + Vector3.right), out hit, 1.5f))
+        {
+
+        }
+        else if (!Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward + Vector3.left), out hit, 1.5f))
+        {
+
+        }
+        else if (!Physics.Raycast(transform.position, transform.TransformDirection(Vector3.back + Vector3.right), out hit, 1.5f))
+        {
+
+        }
+        else if (!Physics.Raycast(transform.position, transform.TransformDirection(Vector3.back + Vector3.left), out hit, 1.5f))
         {
 
         }
