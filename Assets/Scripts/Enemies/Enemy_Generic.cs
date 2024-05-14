@@ -26,7 +26,7 @@ public class Enemy_Generic : MonoBehaviour, IEnemy, IDamageable
         transform.position = toPlayerStep();        
     }
 
-    public void onDamage(int damagevalue, Attacks attackType)
+    public void onDamage(int damagevalue, Attacks attackType, Hero hero)
    {
         //if the damage type of the attack is accepted by the SO
         if(enemyData.canZap && attackType == Attacks.MAGICATTACK ||
@@ -37,35 +37,40 @@ public class Enemy_Generic : MonoBehaviour, IEnemy, IDamageable
             health -= damagevalue;
             if(health <= 0)
             {
-                onDeath(attackType);
+                onDeath(attackType, hero);
             }
         }
 
    }
 
-   public void onDeath(Attacks attackType)
+   public void onDeath(Attacks attackType, Hero hero)
    {
         switch (attackType)
         {
             case Attacks.FIGHTATTACK:
-                SendScore(enemyData.pointsFightingKill);
+                SendScore(enemyData.pointsFightingKill, hero);
                 break;
 
             case Attacks.SHOTATTACK:
-                SendScore(enemyData.pointsShootingKill);
+                SendScore(enemyData.pointsShootingKill, hero);
                 break;
 
             case Attacks.MAGICATTACK:
-                SendScore(enemyData.pointsMagicKill);
+                SendScore(enemyData.pointsMagicKill, hero);
                 break;
         }
    }
 
 
-    public void SendScore(int points)
+    public void SendScore(int points, Hero hero)
     {
-        //TODO once scoring system and UI events are being made
-        //fire off score event
+        if (hero != Hero.ENEMY)
+        {
+            //TODO once scoring system and UI events are being made
+            //fire off score event
+
+
+        }
     }
 
     public virtual void attack(GameObject player)
@@ -98,5 +103,14 @@ public class Enemy_Generic : MonoBehaviour, IEnemy, IDamageable
         }
         return closestEnemy;
     
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Projectile")
+        {
+            var p = other.GetComponent<Projectile>();
+            
+        }
     }
 }

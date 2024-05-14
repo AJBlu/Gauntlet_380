@@ -1,4 +1,4 @@
 public interface IPickup
 {
-    void onPickUp();
+    Potions onPickUp();
 }

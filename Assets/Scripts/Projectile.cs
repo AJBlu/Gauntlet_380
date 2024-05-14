@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    int _damage;
+    public int _damage;
     float _shotSpeed;
     Vector3 _movementDirection;
-    GameObject _origin;
+    public GameObject _origin;
     public void SetShotAttributes(int damage, float shotSpeed, Vector3 movementDirection, GameObject origin)
     {
         damage = _damage;
@@ -25,5 +25,10 @@ public class Projectile : MonoBehaviour
     private void _movement()
     {
         transform.position += _movementDirection * _shotSpeed * Time.deltaTime;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        
     }
 }
