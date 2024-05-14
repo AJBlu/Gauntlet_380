@@ -94,7 +94,10 @@ public class PlayerGeneric : MonoBehaviour, IPlayerClass
     }
     private void OnTriggerEnter(Collider other)
     {
-        OnFight(other);
+        if(other.tag == "Enemy" || other.tag == "Generator")
+            OnFight(other);
+
+
         if (other.tag == "Projectile")
         {
             if (other.gameObject.GetComponent<Projectile>()._origin.tag == "Enemy")
@@ -104,7 +107,7 @@ public class PlayerGeneric : MonoBehaviour, IPlayerClass
             }
             else
             {
-                Destroy(other.gameObject);
+                //Destroy(other.gameObject);
             }
         }
     }
@@ -264,5 +267,10 @@ public class PlayerGeneric : MonoBehaviour, IPlayerClass
     IEnumerator isInvisible()
     {
         yield return new WaitForSeconds(5);
+    }
+    public IEnumerator hungry()
+    {
+        DamagePlayer(1);
+        yield return new WaitForSeconds(1f);
     }
 }

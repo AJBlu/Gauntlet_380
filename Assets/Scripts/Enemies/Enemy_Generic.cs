@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -9,7 +10,7 @@ public class Enemy_Generic : MonoBehaviour, IEnemy, IDamageable
 {
     public EnemySO enemyData;
 
-    protected int health;
+    public int health;
 
 
     [Range(0f, 50f)]
@@ -20,26 +21,29 @@ public class Enemy_Generic : MonoBehaviour, IEnemy, IDamageable
         health = enemyData.health;
    }
 
+    private void Awake()
+    {
+        assignDamageStats();
+    }
+
 
     private void Update()
     {
-        transform.position = toPlayerStep();        
+    
+        transform.position = toPlayerStep();
+        
+
     }
 
     public void onDamage(int damagevalue, Attacks attackType, Hero hero)
    {
-        //if the damage type of the attack is accepted by the SO
-        if(enemyData.canZap && attackType == Attacks.MAGICATTACK ||
-           enemyData.canShoot && attackType == Attacks.SHOTATTACK ||
-           enemyData.canFight && attackType == Attacks.FIGHTATTACK
-        )
-        {
+        Debug.Log("Damaging");
+
             health -= damagevalue;
-            if(health <= 0)
+            if(health < 1)
             {
                 onDeath(attackType, hero);
             }
-        }
 
    }
 
@@ -59,6 +63,7 @@ public class Enemy_Generic : MonoBehaviour, IEnemy, IDamageable
                 SendScore(enemyData.pointsMagicKill, hero);
                 break;
         }
+        Destroy(this.gameObject);
    }
 
 
@@ -93,7 +98,7 @@ public class Enemy_Generic : MonoBehaviour, IEnemy, IDamageable
 
         foreach (PlayerController player in FindObjectsOfType<PlayerController>())
         {
-            Debug.Log($"{FindObjectsOfType<PlayerController>().Length}");
+            //Debug.Log($"{FindObjectsOfType<PlayerController>().Length}");
             if(Vector3.Distance(player.transform.position, this.transform.position) < currentShortestPath)
             {
                 //Debug.LogFormat($"Nearest player is: {player.name}");
@@ -109,8 +114,10 @@ public class Enemy_Generic : MonoBehaviour, IEnemy, IDamageable
     {
         if(other.tag == "Projectile")
         {
-            var p = other.GetComponent<Projectile>();
-            
+            if (other.GetComponent<Projectile>()._origin.tag == "Player")
+                onDamage(other.GetComponent<Projectile>()._damage, Attacks.SHOTATTACK, other.GetComponent<Projectile>()._origin.GetComponent<PlayerGeneric>().hero);
+            else
+                onDamage(other.GetComponent<Projectile>()._damage, Attacks.SHOTATTACK, Hero.ENEMY);
         }
     }
 }
