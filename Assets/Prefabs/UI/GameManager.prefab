@@ -722,6 +722,7 @@ MonoBehaviour:
   _wizardPotions: 0
   _valkyrieKeys: 0
   _valkyriePotions: 0
+  _currentLevel: {fileID: 0}
   _levelText: {fileID: 1105380069186400755}
   _promptText: {fileID: 8811696997729736966}
   _elfScoreText: {fileID: 5224216238142946986}
@@ -769,6 +770,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5547489bd783c9a46b39d9b78399883f, type: 2}
   - {fileID: 11400000, guid: 3a3af16b41f4578448dc20f8b5b40d08, type: 2}
   - {fileID: 11400000, guid: 68e5ff099c9f96e49ae848612e87d79a, type: 2}
+  levels: []
 --- !u!1 &1219912840623636694
 GameObject:
   m_ObjectHideFlags: 0

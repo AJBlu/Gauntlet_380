@@ -89,6 +89,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ResetGame"",
+                    ""type"": ""Button"",
+                    ""id"": ""0467d2ed-c432-4f19-9a05-373f69078a2f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -509,6 +518,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Magic"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f12ec9f7-4ab4-4704-b0c8-c9d7debbe0fa"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""ResetGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -574,6 +594,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""name"": ""JoinValkyrie"",
                     ""type"": ""Button"",
                     ""id"": ""5d645b36-6ecf-4b80-b181-87fe0717fc56"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ResetGame"",
+                    ""type"": ""Button"",
+                    ""id"": ""330f46f2-3b19-442f-9942-b0d22bd02f44"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -998,6 +1027,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Magic"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d6ee5a97-691b-4e92-88d4-8c05606583bf"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""ResetGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -1036,6 +1076,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Player1_JoinWarrior = m_Player1.FindAction("JoinWarrior", throwIfNotFound: true);
         m_Player1_JoinWizard = m_Player1.FindAction("JoinWizard", throwIfNotFound: true);
         m_Player1_JoinValkyrie = m_Player1.FindAction("JoinValkyrie", throwIfNotFound: true);
+        m_Player1_ResetGame = m_Player1.FindAction("ResetGame", throwIfNotFound: true);
         // Player2
         m_Player2 = asset.FindActionMap("Player2", throwIfNotFound: true);
         m_Player2_Move = m_Player2.FindAction("Move", throwIfNotFound: true);
@@ -1045,6 +1086,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Player2_JoinWarrior = m_Player2.FindAction("JoinWarrior", throwIfNotFound: true);
         m_Player2_JoinWizard = m_Player2.FindAction("JoinWizard", throwIfNotFound: true);
         m_Player2_JoinValkyrie = m_Player2.FindAction("JoinValkyrie", throwIfNotFound: true);
+        m_Player2_ResetGame = m_Player2.FindAction("ResetGame", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1113,6 +1155,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player1_JoinWarrior;
     private readonly InputAction m_Player1_JoinWizard;
     private readonly InputAction m_Player1_JoinValkyrie;
+    private readonly InputAction m_Player1_ResetGame;
     public struct Player1Actions
     {
         private @PlayerControls m_Wrapper;
@@ -1124,6 +1167,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @JoinWarrior => m_Wrapper.m_Player1_JoinWarrior;
         public InputAction @JoinWizard => m_Wrapper.m_Player1_JoinWizard;
         public InputAction @JoinValkyrie => m_Wrapper.m_Player1_JoinValkyrie;
+        public InputAction @ResetGame => m_Wrapper.m_Player1_ResetGame;
         public InputActionMap Get() { return m_Wrapper.m_Player1; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1154,6 +1198,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @JoinValkyrie.started += instance.OnJoinValkyrie;
             @JoinValkyrie.performed += instance.OnJoinValkyrie;
             @JoinValkyrie.canceled += instance.OnJoinValkyrie;
+            @ResetGame.started += instance.OnResetGame;
+            @ResetGame.performed += instance.OnResetGame;
+            @ResetGame.canceled += instance.OnResetGame;
         }
 
         private void UnregisterCallbacks(IPlayer1Actions instance)
@@ -1179,6 +1226,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @JoinValkyrie.started -= instance.OnJoinValkyrie;
             @JoinValkyrie.performed -= instance.OnJoinValkyrie;
             @JoinValkyrie.canceled -= instance.OnJoinValkyrie;
+            @ResetGame.started -= instance.OnResetGame;
+            @ResetGame.performed -= instance.OnResetGame;
+            @ResetGame.canceled -= instance.OnResetGame;
         }
 
         public void RemoveCallbacks(IPlayer1Actions instance)
@@ -1207,6 +1257,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player2_JoinWarrior;
     private readonly InputAction m_Player2_JoinWizard;
     private readonly InputAction m_Player2_JoinValkyrie;
+    private readonly InputAction m_Player2_ResetGame;
     public struct Player2Actions
     {
         private @PlayerControls m_Wrapper;
@@ -1218,6 +1269,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @JoinWarrior => m_Wrapper.m_Player2_JoinWarrior;
         public InputAction @JoinWizard => m_Wrapper.m_Player2_JoinWizard;
         public InputAction @JoinValkyrie => m_Wrapper.m_Player2_JoinValkyrie;
+        public InputAction @ResetGame => m_Wrapper.m_Player2_ResetGame;
         public InputActionMap Get() { return m_Wrapper.m_Player2; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1248,6 +1300,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @JoinValkyrie.started += instance.OnJoinValkyrie;
             @JoinValkyrie.performed += instance.OnJoinValkyrie;
             @JoinValkyrie.canceled += instance.OnJoinValkyrie;
+            @ResetGame.started += instance.OnResetGame;
+            @ResetGame.performed += instance.OnResetGame;
+            @ResetGame.canceled += instance.OnResetGame;
         }
 
         private void UnregisterCallbacks(IPlayer2Actions instance)
@@ -1273,6 +1328,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @JoinValkyrie.started -= instance.OnJoinValkyrie;
             @JoinValkyrie.performed -= instance.OnJoinValkyrie;
             @JoinValkyrie.canceled -= instance.OnJoinValkyrie;
+            @ResetGame.started -= instance.OnResetGame;
+            @ResetGame.performed -= instance.OnResetGame;
+            @ResetGame.canceled -= instance.OnResetGame;
         }
 
         public void RemoveCallbacks(IPlayer2Actions instance)
@@ -1317,6 +1375,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnJoinWarrior(InputAction.CallbackContext context);
         void OnJoinWizard(InputAction.CallbackContext context);
         void OnJoinValkyrie(InputAction.CallbackContext context);
+        void OnResetGame(InputAction.CallbackContext context);
     }
     public interface IPlayer2Actions
     {
@@ -1327,5 +1386,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnJoinWarrior(InputAction.CallbackContext context);
         void OnJoinWizard(InputAction.CallbackContext context);
         void OnJoinValkyrie(InputAction.CallbackContext context);
+        void OnResetGame(InputAction.CallbackContext context);
     }
 }

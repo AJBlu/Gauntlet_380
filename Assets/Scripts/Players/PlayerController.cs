@@ -139,12 +139,14 @@ public class PlayerController : MonoBehaviour
                 _playerData.hero = Hero.ELF;
                 _playerData.playerData = GameManager.Instance.playerClasses[0];
                 GameManager.Instance.ElfJoined();
-                _playerData.assignPlayerAttributes();
+                _playerData.ResetHealth();
+                GameManager.Instance.UpdateHealth(600, _playerData.hero);
                 _playerData.hasSpawnedOnce = true;
                 _speed = _playerData.playerData.RunningSpeed;
                 _isShooting = false;
                 canRejoin = false;
                 _playerData.isDead = false;
+                GameManager.Instance.hasGameStarted = true;
             }
         }
     }
@@ -191,12 +193,14 @@ public class PlayerController : MonoBehaviour
                 _playerData.hero = Hero.WARRIOR;
                 _playerData.playerData = GameManager.Instance.playerClasses[1];
                 GameManager.Instance.WarriorJoined();
-                _playerData.assignPlayerAttributes();
+                _playerData.ResetHealth();
+                GameManager.Instance.UpdateHealth(600, _playerData.hero);
                 _playerData.hasSpawnedOnce = true;
                 _speed = _playerData.playerData.RunningSpeed;
                 _isShooting = false;
                 canRejoin = false;
                 _playerData.isDead = false;
+                GameManager.Instance.hasGameStarted = true;
             }
         }
     }
@@ -243,12 +247,14 @@ public class PlayerController : MonoBehaviour
                 _playerData.hero = Hero.MAGE;
                 _playerData.playerData = GameManager.Instance.playerClasses[2];
                 GameManager.Instance.WizardJoined();
-                _playerData.assignPlayerAttributes();
+                _playerData.ResetHealth();
+                GameManager.Instance.UpdateHealth(600, _playerData.hero);
                 _playerData.hasSpawnedOnce = true;
                 _speed = _playerData.playerData.RunningSpeed;
                 _isShooting = false;
                 canRejoin = false;
                 _playerData.isDead = false;
+                GameManager.Instance.hasGameStarted = true;
             }
         }
     }
@@ -295,12 +301,14 @@ public class PlayerController : MonoBehaviour
                 _playerData.hero = Hero.VALKYRIE;
                 _playerData.playerData = GameManager.Instance.playerClasses[3];
                 GameManager.Instance.ValkyrieJoined();
-                _playerData.assignPlayerAttributes();
+                _playerData.ResetHealth();
+                GameManager.Instance.UpdateHealth(600, _playerData.hero);
                 _playerData.hasSpawnedOnce = true;
                 _speed = _playerData.playerData.RunningSpeed;
                 _isShooting = false;
                 canRejoin = false;
                 _playerData.isDead = false;
+                GameManager.Instance.hasGameStarted = true;
             }
         }
     }
@@ -309,6 +317,8 @@ public class PlayerController : MonoBehaviour
         if(GameManager.Instance.isGameOver)
         {
             GameManager.Instance.ResetGame();
+            _parentTransform.position = Vector3.zero;
+            _playerData.hasSpawnedOnce = false;
         }
     }
     public void DisablePlayer()

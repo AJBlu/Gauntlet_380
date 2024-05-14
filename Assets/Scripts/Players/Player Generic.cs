@@ -38,9 +38,10 @@ public class PlayerGeneric : MonoBehaviour, IPlayerClass
             }
             else
             {
+                hasSpawnedOnce = false;
+                isDead = false;
                 _timerValue = 0;
                 PlayerReset();
-                isDead = false;
                 _timerValue = 10;
                 if(hero == Hero.ELF)
                 {
@@ -172,23 +173,14 @@ public class PlayerGeneric : MonoBehaviour, IPlayerClass
         gameObject.GetComponent<PlayerController>().DisablePlayer();
         gameObject.GetComponent<Collider>().isTrigger = true;
     }
+    public void ResetHealth()
+    {
+        _currentHealth = 600;
+    }
     public void PlayerReset()
     {
-        gameObject.GetComponent<PlayerController>().hasCharacter = false;
-        _currentHealth = playerData.Health;
-        _shotStrength = playerData.ShotStrength;
-        _shotSpeed = playerData.shotSpeed;
-        _shotStrength = playerData.ShotStrength;
-        _magicMonsters = playerData.magicMonsters;
-        _magicShotMonsters = playerData.magicShotMonsters;
-        _magicGenerators = playerData.magicGenerators;
-        _magicShotGenerators = playerData.magicShotGenerators;
-        _runningSpeed = playerData.RunningSpeed;
-        _meleeMonsters = playerData.meleeMonsters;
-        _meleeGenerators = playerData.meleeGenerators;
-        _armor = (int)playerData.Armor;
         Destroy(inventory);
-        inventory = gameObject.AddComponent<PlayerInventory>();
+        Destroy(_screenBounds);
 
         if(hero == Hero.ELF)
         {
@@ -258,6 +250,7 @@ public class PlayerGeneric : MonoBehaviour, IPlayerClass
                 break;
             case Potions.KEY:
                 inventory.addKey();
+                GameManager.Instance.AddScore(100, hero);
                 GameManager.Instance.UpdateInventory(inventory._potions, inventory._keys, hero);
                 break;
             default:

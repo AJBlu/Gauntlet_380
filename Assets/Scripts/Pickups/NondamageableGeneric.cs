@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class NondamageableGeneric : IPickup
+public class NondamageableGeneric : MonoBehaviour, IPickup
 {
-    PotionSO value;
+    public PotionSO value;
 
     public void OnTriggerEnter(Collider other)
     {
