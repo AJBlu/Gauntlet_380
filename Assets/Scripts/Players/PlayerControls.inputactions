@@ -67,6 +67,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "ResetGame",
+                    "type": "Button",
+                    "id": "0467d2ed-c432-4f19-9a05-373f69078a2f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -487,6 +496,17 @@
                     "action": "Magic",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f12ec9f7-4ab4-4704-b0c8-c9d7debbe0fa",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
+                    "action": "ResetGame",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -552,6 +572,15 @@
                     "name": "JoinValkyrie",
                     "type": "Button",
                     "id": "5d645b36-6ecf-4b80-b181-87fe0717fc56",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ResetGame",
+                    "type": "Button",
+                    "id": "330f46f2-3b19-442f-9942-b0d22bd02f44",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -974,6 +1003,17 @@
                     "processors": "",
                     "groups": "Controller",
                     "action": "Magic",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d6ee5a97-691b-4e92-88d4-8c05606583bf",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
+                    "action": "ResetGame",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
