@@ -5,12 +5,57 @@ using UnityEngine;
 
 public class PlayerGeneric : MonoBehaviour, IPlayerClass
 {
-    PlayerInventory inventory;
+    public PlayerInventory inventory;
     ScreenBounds _screenBounds;
-    PlayerSO playerData;
+    public PlayerSO playerData;
     int _currentHealth, _shotStrength, _magicMonsters, _magicGenerators, _magicShotMonsters, _magicShotGenerators, _meleeMonsters, _armor;
-    float _meleeGenerators, _shotSpeed, _runningSpeed;
+    float _meleeGenerators, _shotSpeed, _runningSpeed, _second, _timerValue = 10;
+    public bool isDead;
     public Hero hero;
+    public bool hasSpawnedOnce = false;
+    private void Update()
+    {
+        if(hasSpawnedOnce)
+        {
+            if (isDead == false)
+            {
+                if (_currentHealth <= 0)
+                {
+                    _currentHealth = 0;
+                    isDead = true;
+                    PlayerOver();
+                }
+            }
+        }
+        if (isDead == false)
+            _timerValue = 10;
+        if(isDead)
+        {
+            if(_timerValue > 0)
+            {
+                _timerValue -= Time.deltaTime;
+                GameManager.Instance.TimerTextUpdate(_timerValue, hero);
+            }
+            else
+            {
+                _timerValue = 0;
+                PlayerReset();
+                isDead = false;
+                _timerValue = 10;
+            }
+        }
+        if (_currentHealth != 0)
+        {
+            float healthLostRate = 1.0f;
+            _second += Time.deltaTime;
+            if (_second >= healthLostRate)
+            {
+                _currentHealth -= 100;
+                GameManager.Instance.UpdateHealth(_currentHealth, hero);
+                _second = 0;
+            }
+        }
+    }
     public void assignPlayerAttributes()
     {
         _currentHealth = playerData.Health;
@@ -27,6 +72,8 @@ public class PlayerGeneric : MonoBehaviour, IPlayerClass
         _armor = (int)playerData.Armor;
         inventory = gameObject.AddComponent<PlayerInventory>();
         _screenBounds = gameObject.AddComponent<ScreenBounds>();
+        GameManager.Instance.UpdateHealth(_currentHealth, hero);
+        GameManager.Instance.UpdateInventory(inventory._potions, inventory._keys, hero);
 
     }
     private void OnTriggerEnter(Collider other)
@@ -88,6 +135,7 @@ public class PlayerGeneric : MonoBehaviour, IPlayerClass
                 }
             }
         }
+        GameManager.Instance.UpdateInventory(inventory._potions, inventory._keys, hero);
     }
 
     public void OnShoot()
@@ -99,10 +147,57 @@ public class PlayerGeneric : MonoBehaviour, IPlayerClass
     {
 
     }
+    public void PlayerOver()
+    {
+        _currentHealth = 0;
+        gameObject.GetComponent<PlayerController>().DisablePlayer();
+        gameObject.GetComponent<Collider>().isTrigger = true;
+    }
+    public void PlayerReset()
+    {
+        gameObject.GetComponent<PlayerController>().hasCharacter = false;
+        _currentHealth = playerData.Health;
+        _shotStrength = playerData.ShotStrength;
+        _shotSpeed = playerData.shotSpeed;
+        _shotStrength = playerData.ShotStrength;
+        _magicMonsters = playerData.magicMonsters;
+        _magicShotMonsters = playerData.magicShotMonsters;
+        _magicGenerators = playerData.magicGenerators;
+        _magicShotGenerators = playerData.magicShotGenerators;
+        _runningSpeed = playerData.RunningSpeed;
+        _meleeMonsters = playerData.meleeMonsters;
+        _meleeGenerators = playerData.meleeGenerators;
+        _armor = (int)playerData.Armor;
+        Destroy(inventory);
+        inventory = gameObject.AddComponent<PlayerInventory>();
+
+        if(hero == Hero.ELF)
+        {
+            GameManager.Instance.elfJoined = false;
+            GameManager.Instance.ElfHasReset();
+        }
+        if (hero == Hero.WARRIOR)
+        {
+            GameManager.Instance.warriorJoined = false;
+            GameManager.Instance.WarriorHasReset();
+        }
+        if (hero == Hero.MAGE)
+        {
+            GameManager.Instance.wizardJoined = false;
+            GameManager.Instance.WizardHasReset();
+        }
+        if (hero == Hero.VALKYRIE)
+        {
+            GameManager.Instance.valkyrieJoined = false;
+            GameManager.Instance.ValkyrieHasReset();
+        }
+        gameObject.GetComponent<PlayerController>().canRejoin = false;
+    }
 
     public void DamagePlayer(int damageTaken)
     {
         _currentHealth -= (damageTaken - _armor);
+        GameManager.Instance.UpdateHealth(_currentHealth, hero);
     }
     public void OnPotionPickup(Potions potion)
     {
@@ -140,9 +235,13 @@ public class PlayerGeneric : MonoBehaviour, IPlayerClass
                 break;
             case Potions.BOMBPOTION:
                 inventory.addPotion();
+                GameManager.Instance.UpdateInventory(inventory._potions, inventory._keys, hero);
                 break;
             case Potions.KEY:
                 inventory.addKey();
+                GameManager.Instance.UpdateInventory(inventory._potions, inventory._keys, hero);
+                break;
+            default:
                 break;
         }
     }

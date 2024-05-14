@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WallDamageable : Wall, IDamageable
+public class WallDamageable : Wall//, IDamageable
 {
     int health;
     public void assignDamageStats()
