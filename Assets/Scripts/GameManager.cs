@@ -7,6 +7,7 @@ public class GameManager : Singleton<GameManager>
 {
     //UI elemenets that are needed for the game with each character having certain things tracked.
     private int _level;
+    [SerializeField]private GameObject playersGO;
     private int _elfScore, _warriorScore, _wizardScore, _valkyrieScore;
     private int _elfHealth, _warriorHealth, _wizardHealth, _valkyrieHealth;
     public int _elfKeys, _elfPotions, _warriorKeys, _warriorPotions, _wizardKeys, _wizardPotions, _valkyrieKeys, _valkyriePotions;
@@ -76,6 +77,11 @@ public class GameManager : Singleton<GameManager>
     //load next level
     public void LoadNextLevel()
     {
+        playersGO.transform.position = new Vector3(0, 1.5f, 0);
+        foreach (PlayerController player in FindObjectsOfType<PlayerController>())
+        {
+            player.transform.position = new Vector3(0, 1.5f, 0);
+        }
         Destroy(_currentLevel);
         _level++;
         if(_level > levels.Length - 1)
@@ -84,6 +90,7 @@ public class GameManager : Singleton<GameManager>
         }
         Debug.Log(_level);
         _currentLevel = Instantiate(levels[_level].gameObject);
+        _currentLevel.transform.position = Vector3.zero;
     }
     //Call whenever score would be changed (i.e. when a enemy is defeated, treasure is grabbed, potion, etc.) 
     public void AddScore(int scoreAdd, Hero heroEnum)

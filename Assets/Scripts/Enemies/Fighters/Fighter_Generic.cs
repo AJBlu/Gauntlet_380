@@ -14,7 +14,7 @@ public class Fighter_Generic : Enemy_Generic
     void OnTriggerEnter(Collider col)
     {
         if (col.gameObject.tag == "Player" && !isAttacking)
-            StartCoroutine("delayedAttack");
+            StartCoroutine("delayedAttack", col.GetComponent<PlayerGeneric>());
     }
 
     private void OnTriggerExit(Collider other)

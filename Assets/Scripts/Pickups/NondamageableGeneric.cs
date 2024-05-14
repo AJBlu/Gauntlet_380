@@ -12,6 +12,7 @@ public class NondamageableGeneric : MonoBehaviour, IPickup
         if(other.gameObject.tag == "Player")
         {
             other.GetComponent<PlayerGeneric>().OnPotionPickup(value.potion);
+            Destroy(this.gameObject);
         }
     }
     public Potions onPickUp()

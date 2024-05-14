@@ -16,8 +16,8 @@ public class CameraController : MonoBehaviour
         _cameraY = transform.position.y;
         //This needs to be changed to whatever the levels size is also based on screen size as this affects it(maybe add blank boarder on levels to make up for this)
         _minPositionX = -4f;
-        _maxPositionX = 28f;
-        _minPositionZ = -7.5f;
+        _maxPositionX = 30f;
+        _minPositionZ = -36.5f;
         _maxPositionZ = 32.5f;
     }
 

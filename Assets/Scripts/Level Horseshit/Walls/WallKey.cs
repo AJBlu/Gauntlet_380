@@ -5,7 +5,7 @@ using UnityEngine;
 public class WallKey : Wall
 {
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.tag == "Player")
             OnPlayerCollide(other.gameObject);
@@ -18,6 +18,7 @@ public class WallKey : Wall
         //take away key and destroy self if collided with
         if (player.GetComponent<PlayerInventory>().hasKey())
         {
+            GameManager.Instance.UpdateInventory(player.GetComponent<PlayerInventory>()._potions, player.GetComponent<PlayerInventory>()._keys, player.GetComponent<PlayerGeneric>().hero);
             gameObject.SetActive(false);
         }
 

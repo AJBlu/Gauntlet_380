@@ -1,6 +1,7 @@
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using Unity.VisualScripting;
 using UnityEditor.Rendering;
 using UnityEngine;
@@ -10,26 +11,32 @@ public class Enemy_Generic : MonoBehaviour, IEnemy, IDamageable
 {
     public EnemySO enemyData;
 
-    public int health;
-
-
+    int health;
+    int attackDamage;
+    public int GetAttack
+    {
+        get { return attackDamage; }
+    }
     [Range(0f, 50f)]
     public float speed = 1;
     //Damageable
    public void assignDamageStats()
    {
         health = enemyData.health;
+        attackDamage = enemyData.meleeDamage;
    }
 
     private void Awake()
     {
         assignDamageStats();
     }
-
+    private void Start()
+    {
+        assignDamageStats();
+    }
 
     private void Update()
     {
-    
         transform.position = toPlayerStep();
         
 
@@ -118,6 +125,10 @@ public class Enemy_Generic : MonoBehaviour, IEnemy, IDamageable
                 onDamage(other.GetComponent<Projectile>()._damage, Attacks.SHOTATTACK, other.GetComponent<Projectile>()._origin.GetComponent<PlayerGeneric>().hero);
             else
                 onDamage(other.GetComponent<Projectile>()._damage, Attacks.SHOTATTACK, Hero.ENEMY);
+        }
+        if(other.tag == "Player")
+        {
+            other.GetComponent<PlayerGeneric>().DamagePlayer(attackDamage);
         }
     }
 }

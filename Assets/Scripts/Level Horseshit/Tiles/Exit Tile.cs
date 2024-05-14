@@ -13,6 +13,6 @@ public class ExitTile : MonoBehaviour, ITile
 
     public void OnWalkOver(GameObject player)
     {
-        GameObject.Find("GameManager").GetComponent<GameManager>().LoadNextLevel();
+        GameManager.Instance.LoadNextLevel();
     }
 }

@@ -27,6 +27,16 @@ public class Generator : MonoBehaviour, IDamageable
             StartCoroutine("spawnCoroutine");
         }
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Projectile")
+        {
+            if (other.GetComponent<Projectile>()._origin.tag == "Player")
+                onDamage(other.GetComponent<Projectile>()._damage, Attacks.SHOTATTACK, other.GetComponent<Projectile>()._origin.GetComponent<PlayerGeneric>().hero);
+            else
+                onDamage(other.GetComponent<Projectile>()._damage, Attacks.SHOTATTACK, Hero.ENEMY);
+        }
+    }
     public void assignDamageStats()
     {
         health = stats.health;
@@ -47,8 +57,7 @@ public class Generator : MonoBehaviour, IDamageable
         {
             //TODO once scoring system and UI events are being made
             //fire off score event
-
-
+            GameManager.Instance.AddScore(points, hero);
         }
     }
     public void onDamage(int damageValue, Attacks attack, Hero hero)
@@ -119,8 +128,9 @@ public class Generator : MonoBehaviour, IDamageable
 
             }*/
 
-
-            Instantiate(monster, transform.position + getNearestPlayerNormalized(), Quaternion.identity);
+            GameObject newMonster;
+            newMonster = Instantiate(monster, transform.position + getNearestPlayerNormalized(), Quaternion.identity);
+            newMonster.transform.parent = this.transform;
         }
     }
 

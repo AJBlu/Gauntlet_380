@@ -67,7 +67,7 @@ public class PlayerGeneric : MonoBehaviour, IPlayerClass
             _second += Time.deltaTime;
             if (_second >= healthLostRate)
             {
-                _currentHealth -= 100;
+                _currentHealth -= 1;
                 GameManager.Instance.UpdateHealth(_currentHealth, hero);
                 _second = 0;
             }
@@ -115,18 +115,24 @@ public class PlayerGeneric : MonoBehaviour, IPlayerClass
 
     public void OnFight(Collider collider)
     {
-            if(collider.tag == "Enemy")
+        if(collider.tag == "Enemy")
+        {
+            if(gameObject.GetComponent<PlayerController>().hasCharacter)
             {
+                DamagePlayer(collider.GetComponent<Enemy_Generic>().GetAttack);
                 collider.GetComponent<Enemy_Generic>().onDamage(_meleeMonsters, Attacks.FIGHTATTACK, hero);
             }
-
-            if(collider.tag == "Generator")
+        }
+        if(collider.tag == "Generator")
+        {
+            if(gameObject.GetComponent<PlayerController>().hasCharacter)
             {
-                if(Random.Range(0f, 1f) < _meleeGenerators)
+                if (Random.Range(0f, 1f) < _meleeGenerators)
                 {
-                    collider.GetComponent<Enemy_Generic>().onDamage(_meleeMonsters, Attacks.FIGHTATTACK, hero);
+                    collider.GetComponent<Generator>().onDamage(_meleeMonsters, Attacks.FIGHTATTACK, hero);
                 }
             }
+        }
 
     }
 
