@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerSO : ScriptableObject
 {
+
     [Header("Shot Attributes")]
     public int ShotStrength;
     public float shotSpeed;
@@ -41,5 +42,6 @@ public class PlayerSO : ScriptableObject
     [Header("Extra Physical Attributes")]
     public float extraArmor;
     public float extraSpeed;
+
 
 }

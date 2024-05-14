@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerGeneric : MonoBehaviour, IPlayerClass
@@ -9,7 +10,7 @@ public class PlayerGeneric : MonoBehaviour, IPlayerClass
     PlayerSO playerData;
     int _currentHealth, _shotStrength, _magicMonsters, _magicGenerators, _magicShotMonsters, _magicShotGenerators, _meleeMonsters, _armor;
     float _meleeGenerators, _shotSpeed, _runningSpeed;
-    
+    public Hero hero;
     public void assignPlayerAttributes()
     {
         _currentHealth = playerData.Health;
@@ -31,22 +32,35 @@ public class PlayerGeneric : MonoBehaviour, IPlayerClass
     private void OnTriggerEnter(Collider other)
     {
         OnFight(other);
+        if (other.tag == "Projectile")
+        {
+            if (other.gameObject.GetComponent<Projectile>()._origin.tag == "Enemy")
+            {
+                DamagePlayer(other.GetComponent<Projectile>()._damage);
+                Destroy(other.gameObject);
+            }
+            else
+            {
+                Destroy(other.gameObject);
+            }
+        }
     }
 
     public void OnFight(Collider collider)
     {
             if(collider.tag == "Enemy")
             {
-                collider.GetComponent<Enemy_Generic>().onDamage(_meleeMonsters, Attacks.FIGHTATTACK);
+                collider.GetComponent<Enemy_Generic>().onDamage(_meleeMonsters, Attacks.FIGHTATTACK, hero);
             }
 
             if(collider.tag == "Generator")
             {
                 if(Random.Range(0f, 1f) < _meleeGenerators)
                 {
-                    collider.GetComponent<Enemy_Generic>().onDamage(_meleeMonsters, Attacks.FIGHTATTACK);
+                    collider.GetComponent<Enemy_Generic>().onDamage(_meleeMonsters, Attacks.FIGHTATTACK, hero);
                 }
             }
+
     }
 
     public void OnMagic()
@@ -60,7 +74,7 @@ public class PlayerGeneric : MonoBehaviour, IPlayerClass
             {
                 if (enemy.GetComponent<Renderer>().isVisible)
                 {
-                    enemy.GetComponent<Enemy_Generic>().onDamage(_magicMonsters, Attacks.MAGICATTACK);
+                    enemy.GetComponent<Enemy_Generic>().onDamage(_magicMonsters, Attacks.MAGICATTACK, hero);
                 }
             }
 
@@ -70,7 +84,7 @@ public class PlayerGeneric : MonoBehaviour, IPlayerClass
                 if(generator.GetComponent<Renderer>().isVisible)
                 {
 
-                    generator.GetComponent<Generator>().onDamage(_magicMonsters, Attacks.MAGICATTACK);
+                    generator.GetComponent<Generator>().onDamage(_magicMonsters, Attacks.MAGICATTACK, hero);
                 }
             }
         }
