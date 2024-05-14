@@ -1,30 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEngine.InputSystem.LowLevel.InputStateHistory;
 
 public class PlayerGeneric : MonoBehaviour, IPlayerClass
 {
-    public PlayerInventory inventory;
+    PlayerInventory inventory;
     ScreenBounds _screenBounds;
-    public PlayerSO playerData;
-    int _currentHealth, _shotStrength, _magicMonsters, _magicGenerators, _magicShotMonsters, _magicShotGenerators, _meleeMonsters, _armor, _characterIndex;
-    float _meleeGenerators, _shotSpeed, _runningSpeed, _second;
-
-    private void FixedUpdate()
-    {
-        if(_characterIndex != 0)
-        {
-            float regenerationRate = 1.0f;
-            _second += Time.deltaTime;
-            if (_second >= regenerationRate)
-            {
-                _currentHealth -= 1;
-                GameManager.Instance.UpdateHealth(_currentHealth, _characterIndex);
-                _second = 0;
-            }
-        }
-    }
+    PlayerSO playerData;
+    int _currentHealth, _shotStrength, _magicMonsters, _magicGenerators, _magicShotMonsters, _magicShotGenerators, _meleeMonsters, _armor;
+    float _meleeGenerators, _shotSpeed, _runningSpeed;
+    public Hero hero;
     public void assignPlayerAttributes()
     {
         _currentHealth = playerData.Health;
@@ -41,27 +27,40 @@ public class PlayerGeneric : MonoBehaviour, IPlayerClass
         _armor = (int)playerData.Armor;
         inventory = gameObject.AddComponent<PlayerInventory>();
         _screenBounds = gameObject.AddComponent<ScreenBounds>();
-        GameManager.Instance.UpdateHealth(_currentHealth, _characterIndex);
+
     }
     private void OnTriggerEnter(Collider other)
     {
         OnFight(other);
+        if (other.tag == "Projectile")
+        {
+            if (other.gameObject.GetComponent<Projectile>()._origin.tag == "Enemy")
+            {
+                DamagePlayer(other.GetComponent<Projectile>()._damage);
+                Destroy(other.gameObject);
+            }
+            else
+            {
+                Destroy(other.gameObject);
+            }
+        }
     }
 
     public void OnFight(Collider collider)
     {
             if(collider.tag == "Enemy")
             {
-                collider.GetComponent<Enemy_Generic>().onDamage(_meleeMonsters, Attacks.FIGHTATTACK);
+                collider.GetComponent<Enemy_Generic>().onDamage(_meleeMonsters, Attacks.FIGHTATTACK, hero);
             }
 
             if(collider.tag == "Generator")
             {
                 if(Random.Range(0f, 1f) < _meleeGenerators)
                 {
-                    collider.GetComponent<Enemy_Generic>().onDamage(_meleeMonsters, Attacks.FIGHTATTACK);
+                    collider.GetComponent<Enemy_Generic>().onDamage(_meleeMonsters, Attacks.FIGHTATTACK, hero);
                 }
             }
+
     }
 
     public void OnMagic()
@@ -75,7 +74,7 @@ public class PlayerGeneric : MonoBehaviour, IPlayerClass
             {
                 if (enemy.GetComponent<Renderer>().isVisible)
                 {
-                    enemy.GetComponent<Enemy_Generic>().onDamage(_magicMonsters, Attacks.MAGICATTACK);
+                    enemy.GetComponent<Enemy_Generic>().onDamage(_magicMonsters, Attacks.MAGICATTACK, hero);
                 }
             }
 
@@ -85,11 +84,10 @@ public class PlayerGeneric : MonoBehaviour, IPlayerClass
                 if(generator.GetComponent<Renderer>().isVisible)
                 {
 
-                    generator.GetComponent<Generator>().onDamage(_magicMonsters, Attacks.MAGICATTACK);
+                    generator.GetComponent<Generator>().onDamage(_magicMonsters, Attacks.MAGICATTACK, hero);
                 }
             }
         }
-        GameManager.Instance.UpdateInventory(inventory._potions, inventory._keys, _characterIndex);
     }
 
     public void OnShoot()
@@ -105,11 +103,10 @@ public class PlayerGeneric : MonoBehaviour, IPlayerClass
     public void DamagePlayer(int damageTaken)
     {
         _currentHealth -= (damageTaken - _armor);
-        GameManager.Instance.UpdateHealth(_currentHealth, _characterIndex);
     }
     public void OnPotionPickup(Potions potion)
     {
-            switch(potion) {
+        switch(potion) {
 
             case Potions.ARMORBOOST:
                 _armor = (int)playerData.extraArmor;
@@ -143,19 +140,11 @@ public class PlayerGeneric : MonoBehaviour, IPlayerClass
                 break;
             case Potions.BOMBPOTION:
                 inventory.addPotion();
-                GameManager.Instance.UpdateInventory(inventory._potions, inventory._keys, _characterIndex);
                 break;
             case Potions.KEY:
                 inventory.addKey();
-                GameManager.Instance.UpdateInventory(inventory._potions, inventory._keys, _characterIndex);
-                break;
-            default: 
                 break;
         }
-    }
-    public void GetCharacterIndex(int characterIndex)
-    {
-        _characterIndex = characterIndex;
     }
     IEnumerator isInvisible()
     {

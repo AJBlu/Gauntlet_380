@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    int _damage;
+    public int _damage;
     float _shotSpeed;
     Vector3 _movementDirection;
     public GameObject _origin;
@@ -25,5 +25,10 @@ public class Projectile : MonoBehaviour
     private void _movement()
     {
         transform.position += _movementDirection * _shotSpeed * Time.deltaTime;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        
     }
 }

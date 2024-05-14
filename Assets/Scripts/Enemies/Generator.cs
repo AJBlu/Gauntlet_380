@@ -19,13 +19,13 @@ public class Generator : MonoBehaviour, IDamageable
         points = stats.points;
     }
 
-    public void onDeath(Attacks attack)
+    public void onDeath(Attacks attack, Hero hero)
     {
         //send score
         Destroy(gameObject);
     }
 
-    public void onDamage(int damageValue, Attacks attack)
+    public void onDamage(int damageValue, Attacks attack, Hero hero)
     {
 
     }
