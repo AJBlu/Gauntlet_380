@@ -122,6 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyData: {fileID: 11400000, guid: 1c8c495f3e0dc3c4c8c5c06d3ca61456, type: 2}
+  health: 0
   speed: 1
 --- !u!54 &1265390644851427722
 Rigidbody:
@@ -148,5 +149,5 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 0

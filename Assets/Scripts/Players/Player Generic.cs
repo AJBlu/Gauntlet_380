@@ -11,10 +11,13 @@ public class PlayerGeneric : MonoBehaviour, IPlayerClass
     int _currentHealth, _shotStrength, _magicMonsters, _magicGenerators, _magicShotMonsters, _magicShotGenerators, _meleeMonsters, _armor;
     float _meleeGenerators, _shotSpeed, _runningSpeed;
     public Hero hero;
+    public GameObject weapon;
+
 
     private void Awake()
     {
         assignPlayerAttributes();
+        StartCoroutine("hungry");
 
     }
     public void assignPlayerAttributes()
@@ -161,7 +164,7 @@ public class PlayerGeneric : MonoBehaviour, IPlayerClass
     }
     public IEnumerator hungry()
     {
-        DamagePlayer(1);
+        _currentHealth -= 1;
         yield return new WaitForSeconds(1f);
     }
 }
