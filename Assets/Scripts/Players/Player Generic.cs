@@ -42,6 +42,22 @@ public class PlayerGeneric : MonoBehaviour, IPlayerClass
                 PlayerReset();
                 isDead = false;
                 _timerValue = 10;
+                if(hero == Hero.ELF)
+                {
+                    GameManager.Instance.elfNotPlaying = true;
+                }
+                if (hero == Hero.WARRIOR)
+                {
+                    GameManager.Instance.warriorNotPlaying = true;
+                }
+                if (hero == Hero.MAGE)
+                {
+                    GameManager.Instance.wizardNotPlaying = true;
+                }
+                if (hero == Hero.VALKYRIE)
+                {
+                    GameManager.Instance.valkyrieNotPlaying = true;
+                }
             }
         }
         if (_currentHealth != 0)

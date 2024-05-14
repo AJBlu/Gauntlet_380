@@ -16,18 +16,47 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] private TMP_Text _elfHealthText, _warriorHealthText, _wizardHealthText, _valkyrieHealthText;
     [SerializeField] private TMP_Text _elfTimerText, _warriorTimerText, _wizardTimerText, _valkyrieTimerText;
     [SerializeField] private TMP_Text _elfKeysText, _elfPotionsText, _warriorKeysText, _warriorPotionsText, _wizardKeysText, _wizardPotionsText, _valkyrieKeysText, _valkyriePotionsText;
-    [SerializeField] private GameObject _elfJoinText, _warriorJoinText, _wizardJoinText, _valkyrieJoinText, _promptHolder, _elfTimerGO, _warriorTimerGO, _wizardTimerGO, _valkyrieTimerGO;
+    [SerializeField] private GameObject _gameOverGO, _elfJoinText, _warriorJoinText, _wizardJoinText, _valkyrieJoinText, _promptHolder, _elfTimerGO, _warriorTimerGO, _wizardTimerGO, _valkyrieTimerGO;
 
     //These variables manage when players join and choose their character so that they can be read by all players and add their SO.
+    public bool isGameOver;
     public bool elfJoined;
     public bool warriorJoined;
     public bool wizardJoined;
     public bool valkyrieJoined;
+    public bool hasGameStarted = false;
+    public bool elfNotPlaying = true;
+    public bool warriorNotPlaying = true;
+    public bool wizardNotPlaying = true;
+    public bool valkyrieNotPlaying = true;
     public PlayerSO[] playerClasses;
 
     private void Update()
     {
         UpdateText();
+
+        if(hasGameStarted)
+        {
+            if(elfNotPlaying && warriorNotPlaying && wizardNotPlaying && valkyrieNotPlaying)
+            {
+                Debug.Log("Game is Over");
+                GameOver();
+            }
+        }
+    }
+    public void GameOver()
+    {
+        Time.timeScale = 0f;
+        _gameOverGO.SetActive(true);
+        hasGameStarted = false;
+        isGameOver = true;
+    }
+    public void ResetGame()
+    {
+        _gameOverGO.SetActive(false);
+        isGameOver = false;
+        //Add something to load in level 1
+        Time.timeScale = 1f;
     }
     //load next level
     public void LoadNextLevel()

@@ -235,7 +235,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98a672ab81eaca74f82c23426e9f8b0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventory: {fileID: 0}
   playerData: {fileID: 0}
+  isDead: 0
+  hero: 0
+  hasSpawnedOnce: 0
 --- !u!114 &4392184743376635248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,12 +253,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e1c6a518a992e445bece547b30f4680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _handRenderer: {fileID: 0}
-  _projectilePrefab: {fileID: 0}
-  _moveInput: {x: 0, y: 0, z: 0}
-  _speed: 0
+  _handRenderer: {fileID: 8300582716232809886}
+  _projectilePrefab: {fileID: 6477635430510706929, guid: 7584b1cae55fc304a8dfc87e197df59c,
+    type: 3}
   hasCharacter: 0
-  characterIndex: 0
+  canRejoin: 0
 --- !u!54 &8440451890602967226
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -585,7 +588,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98a672ab81eaca74f82c23426e9f8b0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventory: {fileID: 0}
   playerData: {fileID: 0}
+  isDead: 0
+  hero: 0
+  hasSpawnedOnce: 0
 --- !u!114 &3318628637237641316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -599,12 +606,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e1c6a518a992e445bece547b30f4680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _handRenderer: {fileID: 0}
-  _projectilePrefab: {fileID: 0}
-  _moveInput: {x: 0, y: 0, z: 0}
-  _speed: 0
+  _handRenderer: {fileID: 5889552800594154167}
+  _projectilePrefab: {fileID: 6477635430510706929, guid: 7584b1cae55fc304a8dfc87e197df59c,
+    type: 3}
   hasCharacter: 0
-  characterIndex: 0
+  canRejoin: 0
 --- !u!54 &2108498194647685671
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1145,7 +1151,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98a672ab81eaca74f82c23426e9f8b0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventory: {fileID: 0}
   playerData: {fileID: 0}
+  isDead: 0
+  hero: 0
+  hasSpawnedOnce: 0
 --- !u!114 &501234981898128566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1159,12 +1169,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e1c6a518a992e445bece547b30f4680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _handRenderer: {fileID: 0}
-  _projectilePrefab: {fileID: 0}
-  _moveInput: {x: 0, y: 0, z: 0}
-  _speed: 0
+  _handRenderer: {fileID: 2743598254383962534}
+  _projectilePrefab: {fileID: 6477635430510706929, guid: 7584b1cae55fc304a8dfc87e197df59c,
+    type: 3}
   hasCharacter: 0
-  characterIndex: 0
+  canRejoin: 0
 --- !u!54 &4087308779448236804
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1600,7 +1609,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98a672ab81eaca74f82c23426e9f8b0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventory: {fileID: 0}
   playerData: {fileID: 0}
+  isDead: 0
+  hero: 0
+  hasSpawnedOnce: 0
 --- !u!114 &6940150479341724703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1614,12 +1627,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e1c6a518a992e445bece547b30f4680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _handRenderer: {fileID: 0}
-  _projectilePrefab: {fileID: 0}
-  _moveInput: {x: 0, y: 0, z: 0}
-  _speed: 0
+  _handRenderer: {fileID: 5480511210772586739}
+  _projectilePrefab: {fileID: 6477635430510706929, guid: 7584b1cae55fc304a8dfc87e197df59c,
+    type: 3}
   hasCharacter: 0
-  characterIndex: 0
+  canRejoin: 0
 --- !u!54 &8741298443742751996
 Rigidbody:
   m_ObjectHideFlags: 0
